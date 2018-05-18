@@ -11,7 +11,7 @@
 #import "DDChatModel.h"
 #import "DDChatToolBar.h"
 
-@interface DDChatViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface DDChatViewController ()<UITableViewDataSource,UITableViewDelegate,DDChatToolBarRecordDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DDChatToolBar *chatToolBar;
@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     self.title = @"fjy";
     [self loadData];
     [self setupUI];
@@ -74,7 +75,7 @@
     }];
     [self.chatToolBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
-        make.height.equalTo(@34);
+        make.height.equalTo(@49);
         make.top.equalTo(self.tableView.mas_bottom);
     }];
 }
@@ -84,6 +85,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.dataSource= self;
         _tableView.delegate= self;
+        _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         [_tableView registerClass:[DDChatCell class] forCellReuseIdentifier:@"cellId"];
         //        _tableView.rowHeight = UITableViewAutomaticDimension;
         //        _tableView.estimatedRowHeight = 100;
@@ -93,8 +95,23 @@
 - (DDChatToolBar *)chatToolBar {
     if (!_chatToolBar) {
         _chatToolBar = [[DDChatToolBar alloc] init];
+        _chatToolBar.recordDelegate = self;
     }
     return _chatToolBar;
+}
+
+#pragma mark - DDChatToolBarRecordDelegate
+- (void)chatToolBarStartRecord {
+    
+}
+- (void)chatToolBarRecording {
+    
+}
+- (void)chatToolBarEndRecord {
+    
+}
+- (void)chatToolBarCancelRecord {
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -105,7 +122,7 @@
     return self.messages.count;
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     DDChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId" forIndexPath:indexPath];
     cell.chatModel = self.messages[indexPath.row];
     return cell;
@@ -113,6 +130,16 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 100;
+}
+
+#pragma mark - 键盘通知
+- (void)keyboardFrameWillChange:(NSNotification *)notification
+{
+    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [self.chatToolBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.view).mas_offset(-keyboardFrame.size.height);
+    }];
+    [self.view layoutIfNeeded];
 }
 
 @end

@@ -31,6 +31,8 @@
 		E34ACBCF20AE775800ED693A /* DDChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBCE20AE775800ED693A /* DDChatCell.m */; };
 		E34ACBD220AE776700ED693A /* DDChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD120AE776700ED693A /* DDChatModel.m */; };
 		E34ACBD520AE79B300ED693A /* DDChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD320AE79B300ED693A /* DDChatToolBar.m */; };
+		E34ACBD820AEA42200ED693A /* DDPressToTalkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */; };
+		E34ACBDC20AEBC3E00ED693A /* DDChatRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBDB20AEBC3E00ED693A /* DDChatRecordView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,10 @@
 		E34ACBD120AE776700ED693A /* DDChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatModel.m; sourceTree = "<group>"; };
 		E34ACBD320AE79B300ED693A /* DDChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatToolBar.m; sourceTree = "<group>"; };
 		E34ACBD420AE79B300ED693A /* DDChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBar.h; sourceTree = "<group>"; };
+		E34ACBD620AEA42200ED693A /* DDPressToTalkButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDPressToTalkButton.h; sourceTree = "<group>"; };
+		E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDPressToTalkButton.m; sourceTree = "<group>"; };
+		E34ACBDA20AEBC3E00ED693A /* DDChatRecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatRecordView.h; sourceTree = "<group>"; };
+		E34ACBDB20AEBC3E00ED693A /* DDChatRecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatRecordView.m; sourceTree = "<group>"; };
 		E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -329,8 +335,7 @@
 		E34ACBC920AE773100ED693A /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				E34ACBD420AE79B300ED693A /* DDChatToolBar.h */,
-				E34ACBD320AE79B300ED693A /* DDChatToolBar.m */,
+				E34ACBD920AEA42800ED693A /* ChatToolBar */,
 				E34ACBCA20AE773B00ED693A /* DDChatViewController.h */,
 				E34ACBCB20AE773B00ED693A /* DDChatViewController.m */,
 				E34ACBCD20AE775800ED693A /* DDChatCell.h */,
@@ -339,6 +344,19 @@
 				E34ACBD120AE776700ED693A /* DDChatModel.m */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		E34ACBD920AEA42800ED693A /* ChatToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBD420AE79B300ED693A /* DDChatToolBar.h */,
+				E34ACBD320AE79B300ED693A /* DDChatToolBar.m */,
+				E34ACBD620AEA42200ED693A /* DDPressToTalkButton.h */,
+				E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */,
+				E34ACBDA20AEBC3E00ED693A /* DDChatRecordView.h */,
+				E34ACBDB20AEBC3E00ED693A /* DDChatRecordView.m */,
+			);
+			path = ChatToolBar;
 			sourceTree = "<group>";
 		};
 		E578D54C3E8280675B29FA79 /* Frameworks */ = {
@@ -539,7 +557,9 @@
 				E34ACBBD20AE701600ED693A /* DDTabBarController.m in Sources */,
 				E34ACBD520AE79B300ED693A /* DDChatToolBar.m in Sources */,
 				E34ACBC520AE701600ED693A /* DDDiscoveryViewController.m in Sources */,
+				E34ACBD820AEA42200ED693A /* DDPressToTalkButton.m in Sources */,
 				E34ACBBF20AE701600ED693A /* DDBaseModel.m in Sources */,
+				E34ACBDC20AEBC3E00ED693A /* DDChatRecordView.m in Sources */,
 				E34ACBC020AE701600ED693A /* DDBaseViewController.m in Sources */,
 				E34ACBC320AE701600ED693A /* DDAddressBookViewController.m in Sources */,
 				E34ACB5F20AE6E7C00ED693A /* AppDelegate.m in Sources */,
