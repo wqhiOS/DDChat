@@ -33,6 +33,8 @@
 		E34ACBD520AE79B300ED693A /* DDChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD320AE79B300ED693A /* DDChatToolBar.m */; };
 		E34ACBD820AEA42200ED693A /* DDPressToTalkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */; };
 		E34ACBDC20AEBC3E00ED693A /* DDChatRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBDB20AEBC3E00ED693A /* DDChatRecordView.m */; };
+		E34ACBE020AEC3B900ED693A /* DDAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */; };
+		E34ACBE320AEC3C300ED693A /* DDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,10 @@
 		E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDPressToTalkButton.m; sourceTree = "<group>"; };
 		E34ACBDA20AEBC3E00ED693A /* DDChatRecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatRecordView.h; sourceTree = "<group>"; };
 		E34ACBDB20AEBC3E00ED693A /* DDChatRecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatRecordView.m; sourceTree = "<group>"; };
+		E34ACBDE20AEC3B900ED693A /* DDAudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAudioRecorder.h; sourceTree = "<group>"; };
+		E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAudioRecorder.m; sourceTree = "<group>"; };
+		E34ACBE120AEC3C300ED693A /* DDAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAudioPlayer.h; sourceTree = "<group>"; };
+		E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAudioPlayer.m; sourceTree = "<group>"; };
 		E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,6 +173,7 @@
 		E34ACB5C20AE6E7C00ED693A /* DDChat */ = {
 			isa = PBXGroup;
 			children = (
+				E34ACBDD20AEC3A400ED693A /* Tools */,
 				E34ACB8F20AE6F3300ED693A /* Classes */,
 				E34ACB9020AE6F5900ED693A /* Support File */,
 				E34ACB5D20AE6E7C00ED693A /* AppDelegate.h */,
@@ -359,6 +366,17 @@
 			path = ChatToolBar;
 			sourceTree = "<group>";
 		};
+		E34ACBDD20AEC3A400ED693A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBDE20AEC3B900ED693A /* DDAudioRecorder.h */,
+				E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */,
+				E34ACBE120AEC3C300ED693A /* DDAudioPlayer.h */,
+				E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		E578D54C3E8280675B29FA79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,18 +539,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DDChat/Pods-DDChat-resources.sh",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
-				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,7 +564,9 @@
 				E34ACBCC20AE773B00ED693A /* DDChatViewController.m in Sources */,
 				E34ACBC620AE701600ED693A /* DDHomeViewController.m in Sources */,
 				E34ACBC120AE701600ED693A /* DDAddressBookModel.m in Sources */,
+				E34ACBE320AEC3C300ED693A /* DDAudioPlayer.m in Sources */,
 				E34ACBBD20AE701600ED693A /* DDTabBarController.m in Sources */,
+				E34ACBE020AEC3B900ED693A /* DDAudioRecorder.m in Sources */,
 				E34ACBD520AE79B300ED693A /* DDChatToolBar.m in Sources */,
 				E34ACBC520AE701600ED693A /* DDDiscoveryViewController.m in Sources */,
 				E34ACBD820AEA42200ED693A /* DDPressToTalkButton.m in Sources */,

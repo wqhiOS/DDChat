@@ -16,8 +16,6 @@ PODS:
     - AFNetworking/NSURLSession
   - Masonry (1.0.2)
   - MLLabel (1.10.2)
-  - RongCloudIM/IMKit (2.8.4):
-    - RongCloudIM/IMLib
   - RongCloudIM/IMLib (2.8.4)
   - TTTAttributedLabel (2.0.0)
 
@@ -25,7 +23,6 @@ DEPENDENCIES:
   - AFNetworking
   - Masonry
   - MLLabel
-  - RongCloudIM/IMKit (~> 2.8.3)
   - RongCloudIM/IMLib (~> 2.8.3)
   - TTTAttributedLabel
 
@@ -44,6 +41,6 @@ SPEC CHECKSUMS:
   RongCloudIM: 8b110800cf0c3a0b32e971fc62e9f214882d5927
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 7fc40f233ad2a1f7527211434cb5460efdce8731
+PODFILE CHECKSUM: a6cbefc2e5911d3bafe32bdf3796229a8710ef86
 
 COCOAPODS: 1.5.0

@@ -10,6 +10,7 @@
 #import "DDChatCell.h"
 #import "DDChatModel.h"
 #import "DDChatToolBar.h"
+#import "DDAudioRecorder.h"
 
 @interface DDChatViewController ()<UITableViewDataSource,UITableViewDelegate,DDChatToolBarRecordDelegate>
 
@@ -87,8 +88,6 @@
         _tableView.delegate= self;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         [_tableView registerClass:[DDChatCell class] forCellReuseIdentifier:@"cellId"];
-        //        _tableView.rowHeight = UITableViewAutomaticDimension;
-        //        _tableView.estimatedRowHeight = 100;
     }
     return _tableView;
 }
@@ -102,16 +101,16 @@
 
 #pragma mark - DDChatToolBarRecordDelegate
 - (void)chatToolBarStartRecord {
-    
+    [[DDAudioRecorder defaultRecorder] startRecordingWithVolumeChangedBlock:nil completeBlock:nil cancelBlock:nil];
 }
 - (void)chatToolBarRecording {
     
 }
 - (void)chatToolBarEndRecord {
-    
+    [[DDAudioRecorder defaultRecorder] stopRecording];
 }
 - (void)chatToolBarCancelRecord {
-    
+    [[DDAudioRecorder defaultRecorder] cancelRecording];
 }
 
 #pragma mark - UITableViewDataSource

@@ -5,7 +5,6 @@ source 'https://git.coding.net/hging/Specs.git'
 target 'DDChat' do
 
   pod 'RongCloudIM/IMLib', '~> 2.8.3'
-  pod 'RongCloudIM/IMKit', '~> 2.8.3'
   pod 'Masonry'
   pod 'MLLabel'
   pod 'TTTAttributedLabel'
