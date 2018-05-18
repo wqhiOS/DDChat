@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DDTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [[RCIM sharedRCIM] initWithAppKey:@"8luwapkv8j7rl"];
+    [[RCIM sharedRCIM] connectWithToken:@"bHupU4xPHlNDYVf5g70DiWqOo4oQ66S4TwsfZLDZe0z+3OcNnX++wx1F/0OoMsFe4qE84vzEUSpTjUK2fWeONpLpeUGSnMHm" success:^(NSString *userId) {
+        NSLog(@"%@",userId);
+    } error:^(RCConnectErrorCode status) {
+        NSLog(@"%ld",(long)status);
+    } tokenIncorrect:^{
+        NSLog(@"token过期");
+    }];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+    self.window.rootViewController = [DDTabBarController new];
+    
     return YES;
 }
 

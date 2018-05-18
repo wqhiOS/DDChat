@@ -9,13 +9,24 @@
 /* Begin PBXBuildFile section */
 		2A9C0FDBFDBFA06C25EF6B22 /* libPods-DDChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */; };
 		E34ACB5F20AE6E7C00ED693A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB5E20AE6E7C00ED693A /* AppDelegate.m */; };
-		E34ACB6220AE6E7D00ED693A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB6120AE6E7D00ED693A /* ViewController.m */; };
-		E34ACB6520AE6E7D00ED693A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E34ACB6320AE6E7D00ED693A /* Main.storyboard */; };
-		E34ACB6720AE6E7D00ED693A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E34ACB6620AE6E7D00ED693A /* Assets.xcassets */; };
-		E34ACB6A20AE6E7D00ED693A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E34ACB6820AE6E7D00ED693A /* LaunchScreen.storyboard */; };
 		E34ACB6D20AE6E7D00ED693A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB6C20AE6E7D00ED693A /* main.m */; };
 		E34ACB7720AE6E7D00ED693A /* DDChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB7620AE6E7D00ED693A /* DDChatTests.m */; };
 		E34ACB8220AE6E7D00ED693A /* DDChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB8120AE6E7D00ED693A /* DDChatUITests.m */; };
+		E34ACB9320AE6F7B00ED693A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E34ACB9120AE6F7B00ED693A /* Assets.xcassets */; };
+		E34ACB9420AE6F7B00ED693A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E34ACB9220AE6F7B00ED693A /* Info.plist */; };
+		E34ACB9A20AE6FCB00ED693A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E34ACB9620AE6FCB00ED693A /* LaunchScreen.storyboard */; };
+		E34ACB9B20AE6FCB00ED693A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E34ACB9820AE6FCB00ED693A /* Main.storyboard */; };
+		E34ACBBD20AE701600ED693A /* DDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB9F20AE701600ED693A /* DDTabBarController.m */; };
+		E34ACBBE20AE701600ED693A /* DDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBA120AE701600ED693A /* DDNavigationController.m */; };
+		E34ACBBF20AE701600ED693A /* DDBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBA520AE701600ED693A /* DDBaseModel.m */; };
+		E34ACBC020AE701600ED693A /* DDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBA620AE701600ED693A /* DDBaseViewController.m */; };
+		E34ACBC120AE701600ED693A /* DDAddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBAB20AE701600ED693A /* DDAddressBookModel.m */; };
+		E34ACBC220AE701600ED693A /* DDAddressBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBAE20AE701600ED693A /* DDAddressBookCell.m */; };
+		E34ACBC320AE701600ED693A /* DDAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBB020AE701600ED693A /* DDAddressBookViewController.m */; };
+		E34ACBC420AE701600ED693A /* DDAddressBookSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBB120AE701600ED693A /* DDAddressBookSearchController.m */; };
+		E34ACBC520AE701600ED693A /* DDDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBB620AE701600ED693A /* DDDiscoveryViewController.m */; };
+		E34ACBC620AE701600ED693A /* DDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBB920AE701600ED693A /* DDHomeViewController.m */; };
+		E34ACBC720AE701600ED693A /* DDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBBB20AE701600ED693A /* DDMineViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +52,6 @@
 		E34ACB5A20AE6E7C00ED693A /* DDChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34ACB5D20AE6E7C00ED693A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E34ACB5E20AE6E7C00ED693A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E34ACB6020AE6E7D00ED693A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E34ACB6120AE6E7D00ED693A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E34ACB6420AE6E7D00ED693A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E34ACB6620AE6E7D00ED693A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E34ACB6920AE6E7D00ED693A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E34ACB6B20AE6E7D00ED693A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E34ACB6C20AE6E7D00ED693A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E34ACB7220AE6E7D00ED693A /* DDChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34ACB7620AE6E7D00ED693A /* DDChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatTests.m; sourceTree = "<group>"; };
@@ -54,6 +59,33 @@
 		E34ACB7D20AE6E7D00ED693A /* DDChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34ACB8120AE6E7D00ED693A /* DDChatUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatUITests.m; sourceTree = "<group>"; };
 		E34ACB8320AE6E7D00ED693A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E34ACB9120AE6F7B00ED693A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E34ACB9220AE6F7B00ED693A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E34ACB9720AE6FCB00ED693A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E34ACB9920AE6FCB00ED693A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		E34ACB9E20AE701600ED693A /* DDTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTabBarController.h; sourceTree = "<group>"; };
+		E34ACB9F20AE701600ED693A /* DDTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTabBarController.m; sourceTree = "<group>"; };
+		E34ACBA120AE701600ED693A /* DDNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNavigationController.m; sourceTree = "<group>"; };
+		E34ACBA220AE701600ED693A /* DDNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNavigationController.h; sourceTree = "<group>"; };
+		E34ACBA420AE701600ED693A /* DDBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBaseViewController.h; sourceTree = "<group>"; };
+		E34ACBA520AE701600ED693A /* DDBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBaseModel.m; sourceTree = "<group>"; };
+		E34ACBA620AE701600ED693A /* DDBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBaseViewController.m; sourceTree = "<group>"; };
+		E34ACBA720AE701600ED693A /* DDBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBaseModel.h; sourceTree = "<group>"; };
+		E34ACBAA20AE701600ED693A /* DDAddressBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAddressBookModel.h; sourceTree = "<group>"; };
+		E34ACBAB20AE701600ED693A /* DDAddressBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAddressBookModel.m; sourceTree = "<group>"; };
+		E34ACBAD20AE701600ED693A /* DDAddressBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAddressBookCell.h; sourceTree = "<group>"; };
+		E34ACBAE20AE701600ED693A /* DDAddressBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAddressBookCell.m; sourceTree = "<group>"; };
+		E34ACBB020AE701600ED693A /* DDAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAddressBookViewController.m; sourceTree = "<group>"; };
+		E34ACBB120AE701600ED693A /* DDAddressBookSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAddressBookSearchController.m; sourceTree = "<group>"; };
+		E34ACBB220AE701600ED693A /* DDAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAddressBookViewController.h; sourceTree = "<group>"; };
+		E34ACBB320AE701600ED693A /* DDAddressBookSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAddressBookSearchController.h; sourceTree = "<group>"; };
+		E34ACBB520AE701600ED693A /* DDDiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDiscoveryViewController.h; sourceTree = "<group>"; };
+		E34ACBB620AE701600ED693A /* DDDiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDiscoveryViewController.m; sourceTree = "<group>"; };
+		E34ACBB820AE701600ED693A /* DDHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHomeViewController.h; sourceTree = "<group>"; };
+		E34ACBB920AE701600ED693A /* DDHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHomeViewController.m; sourceTree = "<group>"; };
+		E34ACBBB20AE701600ED693A /* DDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMineViewController.m; sourceTree = "<group>"; };
+		E34ACBBC20AE701600ED693A /* DDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMineViewController.h; sourceTree = "<group>"; };
+		E34ACBC820AE708400ED693A /* DDChat_PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChat_PrefixHeader.pch; sourceTree = "<group>"; };
 		E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,14 +149,10 @@
 		E34ACB5C20AE6E7C00ED693A /* DDChat */ = {
 			isa = PBXGroup;
 			children = (
+				E34ACB8F20AE6F3300ED693A /* Classes */,
+				E34ACB9020AE6F5900ED693A /* Support File */,
 				E34ACB5D20AE6E7C00ED693A /* AppDelegate.h */,
 				E34ACB5E20AE6E7C00ED693A /* AppDelegate.m */,
-				E34ACB6020AE6E7D00ED693A /* ViewController.h */,
-				E34ACB6120AE6E7D00ED693A /* ViewController.m */,
-				E34ACB6320AE6E7D00ED693A /* Main.storyboard */,
-				E34ACB6620AE6E7D00ED693A /* Assets.xcassets */,
-				E34ACB6820AE6E7D00ED693A /* LaunchScreen.storyboard */,
-				E34ACB6B20AE6E7D00ED693A /* Info.plist */,
 				E34ACB6C20AE6E7D00ED693A /* main.m */,
 			);
 			path = DDChat;
@@ -146,6 +174,143 @@
 				E34ACB8320AE6E7D00ED693A /* Info.plist */,
 			);
 			path = DDChatUITests;
+			sourceTree = "<group>";
+		};
+		E34ACB8F20AE6F3300ED693A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACB9C20AE701600ED693A /* Common */,
+				E34ACBA820AE701600ED693A /* AddressBook */,
+				E34ACBB420AE701600ED693A /* Discovery */,
+				E34ACBB720AE701600ED693A /* Home */,
+				E34ACBBA20AE701600ED693A /* Mine */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E34ACB9020AE6F5900ED693A /* Support File */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACB9520AE6FCB00ED693A /* Base.lproj */,
+				E34ACB9120AE6F7B00ED693A /* Assets.xcassets */,
+				E34ACB9220AE6F7B00ED693A /* Info.plist */,
+				E34ACBC820AE708400ED693A /* DDChat_PrefixHeader.pch */,
+			);
+			path = "Support File";
+			sourceTree = "<group>";
+		};
+		E34ACB9520AE6FCB00ED693A /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACB9620AE6FCB00ED693A /* LaunchScreen.storyboard */,
+				E34ACB9820AE6FCB00ED693A /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		E34ACB9C20AE701600ED693A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACB9D20AE701600ED693A /* TabBar */,
+				E34ACBA020AE701600ED693A /* Nav */,
+				E34ACBA320AE701600ED693A /* Base */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E34ACB9D20AE701600ED693A /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACB9E20AE701600ED693A /* DDTabBarController.h */,
+				E34ACB9F20AE701600ED693A /* DDTabBarController.m */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		E34ACBA020AE701600ED693A /* Nav */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBA120AE701600ED693A /* DDNavigationController.m */,
+				E34ACBA220AE701600ED693A /* DDNavigationController.h */,
+			);
+			path = Nav;
+			sourceTree = "<group>";
+		};
+		E34ACBA320AE701600ED693A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBA420AE701600ED693A /* DDBaseViewController.h */,
+				E34ACBA520AE701600ED693A /* DDBaseModel.m */,
+				E34ACBA620AE701600ED693A /* DDBaseViewController.m */,
+				E34ACBA720AE701600ED693A /* DDBaseModel.h */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E34ACBA820AE701600ED693A /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBA920AE701600ED693A /* Model */,
+				E34ACBAC20AE701600ED693A /* View */,
+				E34ACBAF20AE701600ED693A /* ViewController */,
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		E34ACBA920AE701600ED693A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBAA20AE701600ED693A /* DDAddressBookModel.h */,
+				E34ACBAB20AE701600ED693A /* DDAddressBookModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E34ACBAC20AE701600ED693A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBAD20AE701600ED693A /* DDAddressBookCell.h */,
+				E34ACBAE20AE701600ED693A /* DDAddressBookCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E34ACBAF20AE701600ED693A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBB020AE701600ED693A /* DDAddressBookViewController.m */,
+				E34ACBB120AE701600ED693A /* DDAddressBookSearchController.m */,
+				E34ACBB220AE701600ED693A /* DDAddressBookViewController.h */,
+				E34ACBB320AE701600ED693A /* DDAddressBookSearchController.h */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E34ACBB420AE701600ED693A /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBB520AE701600ED693A /* DDDiscoveryViewController.h */,
+				E34ACBB620AE701600ED693A /* DDDiscoveryViewController.m */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		E34ACBB720AE701600ED693A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBB820AE701600ED693A /* DDHomeViewController.h */,
+				E34ACBB920AE701600ED693A /* DDHomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E34ACBBA20AE701600ED693A /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBBB20AE701600ED693A /* DDMineViewController.m */,
+				E34ACBBC20AE701600ED693A /* DDMineViewController.h */,
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		E578D54C3E8280675B29FA79 /* Frameworks */ = {
@@ -261,9 +426,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E34ACB6A20AE6E7D00ED693A /* LaunchScreen.storyboard in Resources */,
-				E34ACB6720AE6E7D00ED693A /* Assets.xcassets in Resources */,
-				E34ACB6520AE6E7D00ED693A /* Main.storyboard in Resources */,
+				E34ACB9420AE6F7B00ED693A /* Info.plist in Resources */,
+				E34ACB9320AE6F7B00ED693A /* Assets.xcassets in Resources */,
+				E34ACB9B20AE6FCB00ED693A /* Main.storyboard in Resources */,
+				E34ACB9A20AE6FCB00ED693A /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,9 +501,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E34ACB6220AE6E7D00ED693A /* ViewController.m in Sources */,
 				E34ACB6D20AE6E7D00ED693A /* main.m in Sources */,
+				E34ACBC720AE701600ED693A /* DDMineViewController.m in Sources */,
+				E34ACBC620AE701600ED693A /* DDHomeViewController.m in Sources */,
+				E34ACBC120AE701600ED693A /* DDAddressBookModel.m in Sources */,
+				E34ACBBD20AE701600ED693A /* DDTabBarController.m in Sources */,
+				E34ACBC520AE701600ED693A /* DDDiscoveryViewController.m in Sources */,
+				E34ACBBF20AE701600ED693A /* DDBaseModel.m in Sources */,
+				E34ACBC020AE701600ED693A /* DDBaseViewController.m in Sources */,
+				E34ACBC320AE701600ED693A /* DDAddressBookViewController.m in Sources */,
 				E34ACB5F20AE6E7C00ED693A /* AppDelegate.m in Sources */,
+				E34ACBBE20AE701600ED693A /* DDNavigationController.m in Sources */,
+				E34ACBC220AE701600ED693A /* DDAddressBookCell.m in Sources */,
+				E34ACBC420AE701600ED693A /* DDAddressBookSearchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,20 +549,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E34ACB6320AE6E7D00ED693A /* Main.storyboard */ = {
+		E34ACB9620AE6FCB00ED693A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E34ACB6420AE6E7D00ED693A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E34ACB6820AE6E7D00ED693A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E34ACB6920AE6E7D00ED693A /* Base */,
+				E34ACB9720AE6FCB00ED693A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E34ACB9820AE6FCB00ED693A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E34ACB9920AE6FCB00ED693A /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -507,13 +683,18 @@
 			baseConfigurationReference = 429EF91DF6D92E1827AF8A15 /* Pods-DDChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
-				INFOPLIST_FILE = DDChat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				GCC_PREFIX_HEADER = "DDChat/Support File/DDChat_PrefixHeader.pch";
+				INFOPLIST_FILE = "DDChat/Support File/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wuqh.DDChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -522,13 +703,18 @@
 			baseConfigurationReference = 59C5C62F2DA623C42FD729B8 /* Pods-DDChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
-				INFOPLIST_FILE = DDChat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				GCC_PREFIX_HEADER = "DDChat/Support File/DDChat_PrefixHeader.pch";
+				INFOPLIST_FILE = "DDChat/Support File/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wuqh.DDChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -539,7 +725,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
 				INFOPLIST_FILE = DDChatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wuqh.DDChatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -554,7 +744,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
 				INFOPLIST_FILE = DDChatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wuqh.DDChatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -568,7 +762,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
 				INFOPLIST_FILE = DDChatUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wuqh.DDChatUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -582,7 +780,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
 				INFOPLIST_FILE = DDChatUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wuqh.DDChatUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
