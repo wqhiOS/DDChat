@@ -1,5 +1,5 @@
 //
-//  DDChatRecordView.h
+//  DDChatRecordIndicatorView.h
 //  DDChat
 //
 //  Created by wuqh on 2018/5/18.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DDChatRecordView : UIView
+@interface DDChatRecordIndicatorView : UIView
 
 @end

@@ -1,14 +1,14 @@
 //
-//  DDChatRecordView.m
+//  DDChatRecordIndicatorView.m
 //  DDChat
 //
 //  Created by wuqh on 2018/5/18.
 //  Copyright © 2018年 wuqh. All rights reserved.
 //
 
-#import "DDChatRecordView.h"
+#import "DDChatRecordIndicatorView.h"
 
-@implementation DDChatRecordView
+@implementation DDChatRecordIndicatorView
 
 /*
 // Only override drawRect: if you perform custom drawing.

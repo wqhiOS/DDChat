@@ -101,16 +101,16 @@
 
 #pragma mark - DDChatToolBarRecordDelegate
 - (void)chatToolBarStartRecord {
-    [[DDAudioRecorder defaultRecorder] startRecordingWithVolumeChangedBlock:nil completeBlock:nil cancelBlock:nil];
+//    [[DDAudioRecorder defaultRecorder] startRecordingWithVolumeChangedBlock:nil completeBlock:nil cancelBlock:nil];
 }
 - (void)chatToolBarRecording {
     
 }
 - (void)chatToolBarEndRecord {
-    [[DDAudioRecorder defaultRecorder] stopRecording];
+//    [[DDAudioRecorder defaultRecorder] stopRecording];
 }
 - (void)chatToolBarCancelRecord {
-    [[DDAudioRecorder defaultRecorder] cancelRecording];
+//    [[DDAudioRecorder defaultRecorder] cancelRecording];
 }
 
 #pragma mark - UITableViewDataSource

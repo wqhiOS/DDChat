@@ -32,9 +32,9 @@
 		E34ACBD220AE776700ED693A /* DDChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD120AE776700ED693A /* DDChatModel.m */; };
 		E34ACBD520AE79B300ED693A /* DDChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD320AE79B300ED693A /* DDChatToolBar.m */; };
 		E34ACBD820AEA42200ED693A /* DDPressToTalkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */; };
-		E34ACBDC20AEBC3E00ED693A /* DDChatRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBDB20AEBC3E00ED693A /* DDChatRecordView.m */; };
 		E34ACBE020AEC3B900ED693A /* DDAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */; };
 		E34ACBE320AEC3C300ED693A /* DDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */; };
+		E34ACBE620AECCE100ED693A /* DDChatRecordIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBE520AECCE100ED693A /* DDChatRecordIndicatorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,12 +104,12 @@
 		E34ACBD420AE79B300ED693A /* DDChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBar.h; sourceTree = "<group>"; };
 		E34ACBD620AEA42200ED693A /* DDPressToTalkButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDPressToTalkButton.h; sourceTree = "<group>"; };
 		E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDPressToTalkButton.m; sourceTree = "<group>"; };
-		E34ACBDA20AEBC3E00ED693A /* DDChatRecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatRecordView.h; sourceTree = "<group>"; };
-		E34ACBDB20AEBC3E00ED693A /* DDChatRecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatRecordView.m; sourceTree = "<group>"; };
 		E34ACBDE20AEC3B900ED693A /* DDAudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAudioRecorder.h; sourceTree = "<group>"; };
 		E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAudioRecorder.m; sourceTree = "<group>"; };
 		E34ACBE120AEC3C300ED693A /* DDAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAudioPlayer.h; sourceTree = "<group>"; };
 		E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAudioPlayer.m; sourceTree = "<group>"; };
+		E34ACBE420AECCE100ED693A /* DDChatRecordIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatRecordIndicatorView.h; sourceTree = "<group>"; };
+		E34ACBE520AECCE100ED693A /* DDChatRecordIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatRecordIndicatorView.m; sourceTree = "<group>"; };
 		E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -360,8 +360,8 @@
 				E34ACBD320AE79B300ED693A /* DDChatToolBar.m */,
 				E34ACBD620AEA42200ED693A /* DDPressToTalkButton.h */,
 				E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */,
-				E34ACBDA20AEBC3E00ED693A /* DDChatRecordView.h */,
-				E34ACBDB20AEBC3E00ED693A /* DDChatRecordView.m */,
+				E34ACBE420AECCE100ED693A /* DDChatRecordIndicatorView.h */,
+				E34ACBE520AECCE100ED693A /* DDChatRecordIndicatorView.m */,
 			);
 			path = ChatToolBar;
 			sourceTree = "<group>";
@@ -571,10 +571,10 @@
 				E34ACBC520AE701600ED693A /* DDDiscoveryViewController.m in Sources */,
 				E34ACBD820AEA42200ED693A /* DDPressToTalkButton.m in Sources */,
 				E34ACBBF20AE701600ED693A /* DDBaseModel.m in Sources */,
-				E34ACBDC20AEBC3E00ED693A /* DDChatRecordView.m in Sources */,
 				E34ACBC020AE701600ED693A /* DDBaseViewController.m in Sources */,
 				E34ACBC320AE701600ED693A /* DDAddressBookViewController.m in Sources */,
 				E34ACB5F20AE6E7C00ED693A /* AppDelegate.m in Sources */,
+				E34ACBE620AECCE100ED693A /* DDChatRecordIndicatorView.m in Sources */,
 				E34ACBBE20AE701600ED693A /* DDNavigationController.m in Sources */,
 				E34ACBC220AE701600ED693A /* DDAddressBookCell.m in Sources */,
 				E34ACBC420AE701600ED693A /* DDAddressBookSearchController.m in Sources */,
