@@ -180,9 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				E34ACB9C20AE701600ED693A /* Common */,
+				E34ACBB720AE701600ED693A /* Home */,
 				E34ACBA820AE701600ED693A /* AddressBook */,
 				E34ACBB420AE701600ED693A /* Discovery */,
-				E34ACBB720AE701600ED693A /* Home */,
 				E34ACBBA20AE701600ED693A /* Mine */,
 			);
 			path = Classes;
