@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger,DDChatRecordIndicatorViewStatus) {
+    DDChatRecordIndicatorViewStatusRecording,
+    DDChatRecordIndicatorViewStatusWillCancel,
+    DDChatRecordIndicatorViewStatusTooShort
+};
+
+
 @interface DDChatRecordIndicatorView : UIView
+
+@property (nonatomic, assign) DDChatRecordIndicatorViewStatus recordIndicatorStatus;
 
 @end

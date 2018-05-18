@@ -11,11 +11,14 @@
 #import "DDChatModel.h"
 #import "DDChatToolBar.h"
 #import "DDAudioRecorder.h"
+#import "DDChatRecordIndicatorView.h"
 
 @interface DDChatViewController ()<UITableViewDataSource,UITableViewDelegate,DDChatToolBarRecordDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DDChatToolBar *chatToolBar;
+//@property (nonatomic, strong) 
+
 @property (nonatomic, strong) NSMutableArray *messages;
 
 @end
