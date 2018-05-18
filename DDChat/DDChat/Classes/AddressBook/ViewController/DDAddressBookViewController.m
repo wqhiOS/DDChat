@@ -10,6 +10,7 @@
 #import "DDAddressBookCell.h"
 #import "DDAddressBookModel.h"
 #import "DDAddressBookSearchController.h"
+#import "DDChatViewController.h"
 
 @interface DDAddressBookViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchControllerDelegate,UISearchBarDelegate>
 
@@ -103,6 +104,12 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DDChatViewController *vc = [[DDChatViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.font = [UIFont systemFontOfSize:12];
@@ -112,7 +119,6 @@
     return label;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
     return section == 0 ? 0 : 30;
 }
 

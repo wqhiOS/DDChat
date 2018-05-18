@@ -27,6 +27,10 @@
 		E34ACBC520AE701600ED693A /* DDDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBB620AE701600ED693A /* DDDiscoveryViewController.m */; };
 		E34ACBC620AE701600ED693A /* DDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBB920AE701600ED693A /* DDHomeViewController.m */; };
 		E34ACBC720AE701600ED693A /* DDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBBB20AE701600ED693A /* DDMineViewController.m */; };
+		E34ACBCC20AE773B00ED693A /* DDChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBCB20AE773B00ED693A /* DDChatViewController.m */; };
+		E34ACBCF20AE775800ED693A /* DDChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBCE20AE775800ED693A /* DDChatCell.m */; };
+		E34ACBD220AE776700ED693A /* DDChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD120AE776700ED693A /* DDChatModel.m */; };
+		E34ACBD520AE79B300ED693A /* DDChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD320AE79B300ED693A /* DDChatToolBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,14 @@
 		E34ACBBB20AE701600ED693A /* DDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMineViewController.m; sourceTree = "<group>"; };
 		E34ACBBC20AE701600ED693A /* DDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMineViewController.h; sourceTree = "<group>"; };
 		E34ACBC820AE708400ED693A /* DDChat_PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChat_PrefixHeader.pch; sourceTree = "<group>"; };
+		E34ACBCA20AE773B00ED693A /* DDChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatViewController.h; sourceTree = "<group>"; };
+		E34ACBCB20AE773B00ED693A /* DDChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatViewController.m; sourceTree = "<group>"; };
+		E34ACBCD20AE775800ED693A /* DDChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatCell.h; sourceTree = "<group>"; };
+		E34ACBCE20AE775800ED693A /* DDChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatCell.m; sourceTree = "<group>"; };
+		E34ACBD020AE776700ED693A /* DDChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatModel.h; sourceTree = "<group>"; };
+		E34ACBD120AE776700ED693A /* DDChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatModel.m; sourceTree = "<group>"; };
+		E34ACBD320AE79B300ED693A /* DDChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatToolBar.m; sourceTree = "<group>"; };
+		E34ACBD420AE79B300ED693A /* DDChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBar.h; sourceTree = "<group>"; };
 		E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -180,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				E34ACB9C20AE701600ED693A /* Common */,
+				E34ACBC920AE773100ED693A /* Chat */,
 				E34ACBB720AE701600ED693A /* Home */,
 				E34ACBA820AE701600ED693A /* AddressBook */,
 				E34ACBB420AE701600ED693A /* Discovery */,
@@ -230,8 +243,8 @@
 		E34ACBA020AE701600ED693A /* Nav */ = {
 			isa = PBXGroup;
 			children = (
-				E34ACBA120AE701600ED693A /* DDNavigationController.m */,
 				E34ACBA220AE701600ED693A /* DDNavigationController.h */,
+				E34ACBA120AE701600ED693A /* DDNavigationController.m */,
 			);
 			path = Nav;
 			sourceTree = "<group>";
@@ -278,10 +291,10 @@
 		E34ACBAF20AE701600ED693A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E34ACBB020AE701600ED693A /* DDAddressBookViewController.m */,
-				E34ACBB120AE701600ED693A /* DDAddressBookSearchController.m */,
 				E34ACBB220AE701600ED693A /* DDAddressBookViewController.h */,
+				E34ACBB020AE701600ED693A /* DDAddressBookViewController.m */,
 				E34ACBB320AE701600ED693A /* DDAddressBookSearchController.h */,
+				E34ACBB120AE701600ED693A /* DDAddressBookSearchController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -311,6 +324,21 @@
 				E34ACBBC20AE701600ED693A /* DDMineViewController.h */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		E34ACBC920AE773100ED693A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				E34ACBD420AE79B300ED693A /* DDChatToolBar.h */,
+				E34ACBD320AE79B300ED693A /* DDChatToolBar.m */,
+				E34ACBCA20AE773B00ED693A /* DDChatViewController.h */,
+				E34ACBCB20AE773B00ED693A /* DDChatViewController.m */,
+				E34ACBCD20AE775800ED693A /* DDChatCell.h */,
+				E34ACBCE20AE775800ED693A /* DDChatCell.m */,
+				E34ACBD020AE776700ED693A /* DDChatModel.h */,
+				E34ACBD120AE776700ED693A /* DDChatModel.m */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		E578D54C3E8280675B29FA79 /* Frameworks */ = {
@@ -501,11 +529,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34ACBCF20AE775800ED693A /* DDChatCell.m in Sources */,
+				E34ACBD220AE776700ED693A /* DDChatModel.m in Sources */,
 				E34ACB6D20AE6E7D00ED693A /* main.m in Sources */,
 				E34ACBC720AE701600ED693A /* DDMineViewController.m in Sources */,
+				E34ACBCC20AE773B00ED693A /* DDChatViewController.m in Sources */,
 				E34ACBC620AE701600ED693A /* DDHomeViewController.m in Sources */,
 				E34ACBC120AE701600ED693A /* DDAddressBookModel.m in Sources */,
 				E34ACBBD20AE701600ED693A /* DDTabBarController.m in Sources */,
+				E34ACBD520AE79B300ED693A /* DDChatToolBar.m in Sources */,
 				E34ACBC520AE701600ED693A /* DDDiscoveryViewController.m in Sources */,
 				E34ACBBF20AE701600ED693A /* DDBaseModel.m in Sources */,
 				E34ACBC020AE701600ED693A /* DDBaseViewController.m in Sources */,
