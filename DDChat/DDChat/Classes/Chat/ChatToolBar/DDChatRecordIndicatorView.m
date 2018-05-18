@@ -27,7 +27,9 @@
 }
 
 - (void)setupUI {
-    self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+    self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
+    self.layer.cornerRadius = 10;
+    self.layer.masksToBounds = YES;
     
     self.microphoneImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_record_recording"]];
     [self addSubview:self.microphoneImageView];
@@ -40,6 +42,8 @@
     self.centerImageView.hidden = YES;
     
     self.promptLabel = [[UILabel alloc] init];
+    self.promptLabel.font = [UIFont systemFontOfSize:14];
+    self.promptLabel.textColor = [UIColor whiteColor];
     self.promptLabel.layer.cornerRadius = 4.f;
     self.promptLabel.layer.masksToBounds = YES;
     [self addSubview:self.promptLabel];
@@ -54,7 +58,7 @@
     }];
     [self.promptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
-        make.bottom.equalTo(self.mas_bottom).offset(-4);
+        make.bottom.equalTo(self.mas_bottom).offset(-10);
     }];
     [self.centerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);

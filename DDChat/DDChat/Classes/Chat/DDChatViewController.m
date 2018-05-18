@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DDChatToolBar *chatToolBar;
-//@property (nonatomic, strong) 
+@property (nonatomic, strong) DDChatRecordIndicatorView *recordIndicatorView;
 
 @property (nonatomic, strong) NSMutableArray *messages;
 
@@ -74,6 +74,8 @@
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.chatToolBar];
+    [self.view addSubview:self.recordIndicatorView];
+    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
     }];
@@ -81,6 +83,11 @@
         make.left.right.bottom.equalTo(self.view);
         make.height.equalTo(@49);
         make.top.equalTo(self.tableView.mas_bottom);
+    }];
+    
+    [self.recordIndicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.height.width.equalTo(@150);
     }];
 }
 
@@ -102,15 +109,29 @@
     return _chatToolBar;
 }
 
+- (DDChatRecordIndicatorView *)recordIndicatorView {
+    if (!_recordIndicatorView) {
+        _recordIndicatorView = [[DDChatRecordIndicatorView alloc] initWithFrame:CGRectZero];
+        _recordIndicatorView.hidden = YES;
+    }
+    return _recordIndicatorView;
+}
+
 #pragma mark - DDChatToolBarRecordDelegate
 - (void)chatToolBarStartRecord {
 //    [[DDAudioRecorder defaultRecorder] startRecordingWithVolumeChangedBlock:nil completeBlock:nil cancelBlock:nil];
+    self.recordIndicatorView.hidden = NO;
+    self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusRecording;
 }
-- (void)chatToolBarRecording {
-    
+- (void)chatToolBarRecording:(BOOL)cancel {
+    if (cancel) {
+        self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusWillCancel;
+    }else {
+        self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusRecording;
+    }
 }
 - (void)chatToolBarEndRecord {
-//    [[DDAudioRecorder defaultRecorder] stopRecording];
+    self.recordIndicatorView.hidden = YES;
 }
 - (void)chatToolBarCancelRecord {
 //    [[DDAudioRecorder defaultRecorder] cancelRecording];

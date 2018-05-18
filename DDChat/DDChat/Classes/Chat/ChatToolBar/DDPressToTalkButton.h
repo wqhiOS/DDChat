@@ -13,7 +13,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
              touchBeginAction:(void (^)(void))touchBegin
-              touchMoveAction:(void (^)(void))touchMove
+              touchMoveAction:(void (^)(BOOL))touchMove
                touchEndAction:(void (^)(void))touchEnd
             touchCancelAction:(void (^)(void))touchCancel;
 

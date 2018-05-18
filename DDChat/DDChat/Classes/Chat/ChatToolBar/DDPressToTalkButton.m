@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger,DDPressToTalkButtonState) {
 @property (nonatomic, assign) DDPressToTalkButtonState pressToTalkButtonState;
 
 @property (nonatomic, copy) void(^touchbegin)(void);
-@property (nonatomic, copy) void(^touchMove)(void);
+@property (nonatomic, copy) void(^touchMove)(BOOL);
 @property (nonatomic, copy) void(^touchEnd)(void) ;
 @property (nonatomic, copy) void(^touchCancel)(void) ;
 
@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger,DDPressToTalkButtonState) {
 
 @implementation DDPressToTalkButton
 
-- (instancetype)initWithFrame:(CGRect)frame touchBeginAction:(void (^)(void))touchBegin touchMoveAction:(void (^)(void))touchMove touchEndAction:(void (^)(void))touchEnd touchCancelAction:(void (^)(void))touchCancel {
+- (instancetype)initWithFrame:(CGRect)frame touchBeginAction:(void (^)(void))touchBegin touchMoveAction:(void (^)(BOOL))touchMove touchEndAction:(void (^)(void))touchEnd touchCancelAction:(void (^)(void))touchCancel {
     
     if (self = [super initWithFrame:frame]) {
         self.touchbegin = touchBegin;
@@ -64,13 +64,13 @@ typedef NS_ENUM(NSInteger,DDPressToTalkButtonState) {
     if (point.y < -40) {
         self.pressToTalkButtonState = DDPressToTalkButtonStateCancel;
         if (self.touchMove) {
-            self.touchMove();
+            self.touchMove(YES);
         }
     }else {
         if (self.pressToTalkButtonState != DDPressToTalkButtonStateHighlighted) {
             self.pressToTalkButtonState = DDPressToTalkButtonStateHighlighted;
-            if (self.touchbegin) {
-                self.touchbegin();
+            if (self.touchMove) {
+                self.touchMove(NO);
             }
         }
     }

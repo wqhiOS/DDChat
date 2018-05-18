@@ -10,7 +10,7 @@
 
 @protocol DDChatToolBarRecordDelegate<NSObject>
 - (void)chatToolBarStartRecord;
-- (void)chatToolBarRecording;
+- (void)chatToolBarRecording:(BOOL)cancel;
 - (void)chatToolBarEndRecord;
 - (void)chatToolBarCancelRecord;
 @end

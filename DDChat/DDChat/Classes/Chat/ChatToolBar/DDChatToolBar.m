@@ -49,13 +49,15 @@
     self.inputTextView.layer.cornerRadius = 4.0f;
     [self addSubview:self.inputTextView];
     
+    
+    
     self.pressToTalkButton = [[DDPressToTalkButton alloc] initWithFrame:CGRectZero touchBeginAction:^{
         if ([self.recordDelegate respondsToSelector:@selector(chatToolBarStartRecord)]) {
             [self.recordDelegate chatToolBarStartRecord];
         }
-    } touchMoveAction:^{
-        if ([self.recordDelegate respondsToSelector:@selector(chatToolBarRecording)]) {
-            [self.recordDelegate chatToolBarRecording];
+    } touchMoveAction:^(BOOL isWillCancel){
+        if ([self.recordDelegate respondsToSelector:@selector(chatToolBarRecording:)]) {
+            [self.recordDelegate chatToolBarRecording:isWillCancel];
         }
     } touchEndAction:^{
         if ([self.recordDelegate respondsToSelector:@selector(chatToolBarEndRecord)]) {
