@@ -63,18 +63,20 @@
     }
     
 }
+
 - (void)emojiButtonClick:(UIButton *)button{
     
     if (self.status == DDChatToolBarStatusEmoji) {
         
-        [self.inputTextView becomeFirstResponder];
-        
         [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_emotion"] forState:UIControlStateNormal];
         [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_emotion_HL"] forState:UIControlStateHighlighted];
+        
         
         if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
             [self.delegate chatToolBarFromStatus:DDChatToolBarStatusEmoji toStatus:DDChatToolBarStatusKeyboard];
         }
+        
+        [self.inputTextView becomeFirstResponder];
         
         self.status = DDChatToolBarStatusKeyboard;
     }else {
@@ -87,10 +89,11 @@
         [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard"] forState:UIControlStateNormal];
         [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard_HL"] forState:UIControlStateHighlighted];
         
+        [self.inputTextView resignFirstResponder];
         if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
             [self.delegate chatToolBarFromStatus:self.status toStatus:DDChatToolBarStatusEmoji];
         }
-        [self.inputTextView resignFirstResponder];
+        
         self.status = DDChatToolBarStatusEmoji;
     }
     

@@ -18,10 +18,7 @@
 #import "DDChatViewController+DDChatToolBarDelegate.h"
 
 @interface DDChatViewController ()<UITableViewDataSource,UITableViewDelegate,DDChatKeyboardDelegate>
-{
-    DDChatToolBarStatus lastStatus;
-    DDChatToolBarStatus curStatus;
-}
+
 
 
 @property (nonatomic, strong) NSMutableArray *messages;
@@ -34,6 +31,7 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     self.title = @"fjy";
     [self loadData];
     [self setupUI];
@@ -149,22 +147,21 @@
 
 - (void)chatKeyboardDidShow:(id)keyboard animated:(BOOL)animated
 {
-//    if (curStatus == TLChatBarStatusMore && lastStatus == TLChatBarStatusEmoji) {
-//        [self.emojiKeyboard dismissWithAnimation:NO];
-//    }
-//    else if (curStatus == TLChatBarStatusEmoji && lastStatus == TLChatBarStatusMore) {
+//    if (lastStatus == TLChatBarStatusMore) {
 //        [self.moreKeyboard dismissWithAnimation:NO];
 //    }
-//    [self.messageDisplayView scrollToBottomWithAnimation:YES];
+    
 }
 
 - (void)chatKeyboard:(id)keyboard didChangeHeight:(CGFloat)height
 {
+    NSLog(@"---:%f",height);
     [self.chatToolBar mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.view).mas_offset(-height);
     }];
     [self.view layoutIfNeeded];
-//    [self.messageDisplayView scrollToBottomWithAnimation:YES];
+
+    
 }
 
 
@@ -204,7 +201,13 @@
     }];
     [self.view layoutIfNeeded];
 }
-
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    if (lastStatus == DDChatToolBarStatusEmoji) {
+        [self.emojiKeyboard dismissWithAnimation:NO];
+    }
+//    [self.messageDisplayView scrollToBottomWithAnimation:YES];
+}
 
 
 @end

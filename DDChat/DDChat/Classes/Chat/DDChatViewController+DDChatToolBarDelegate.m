@@ -14,19 +14,21 @@
 
 #pragma mark - DDChatToolBarDelegate
 - (void)chatToolBarFromStatus:(DDChatToolBarStatus)fromStatus toStatus:(DDChatToolBarStatus)toStatus {
+
+    if (curStatus == toStatus) {
+        return;
+    }
+    lastStatus = fromStatus;
+    curStatus = toStatus;
     
     if (toStatus == DDChatToolBarStatusVoice) {
         
         
         
-    }else if (toStatus == DDChatToolBarStatusKeyboard) {
-        
-        if (fromStatus == DDChatToolBarStatusEmoji) {
-            [self.emojiKeyboard dismissWithAnimation:YES];
-        }
-        
     }else if (toStatus == DDChatToolBarStatusEmoji) {
         [self.emojiKeyboard showInView:self.view withAnimation:YES];
+    }else if (toStatus == DDChatToolBarStatusKeyboard) {
+        return;
     }
 }
 
