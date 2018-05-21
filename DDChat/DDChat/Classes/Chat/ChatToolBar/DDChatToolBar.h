@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, DDChatToolBarStatus) {
+    DDChatToolBarStatusInit = 0,
+    DDChatToolBarStatusVoice,
+    DDChatToolBarStatusEmoji,
+    DDChatToolBarStatusMore,
+    DDChatToolBarStatusKeyboard
+};
+
 @protocol DDChatToolBarRecordDelegate<NSObject>
 - (void)chatToolBarStartRecord;
 - (void)chatToolBarRecording:(BOOL)cancel;
@@ -15,8 +23,14 @@
 - (void)chatToolBarCancelRecord;
 @end
 
+@protocol DDChatToolBarDelegate<NSObject>
+- (void)chatToolBarFromStatus:(DDChatToolBarStatus)fromStatus toStatus:(DDChatToolBarStatus)toStatus;
+@end
+
 @interface DDChatToolBar : UIView
 
+@property (nonatomic, assign) DDChatToolBarStatus status;
 @property (nonatomic, weak) id<DDChatToolBarRecordDelegate> recordDelegate;
+@property (nonatomic, weak) id<DDChatToolBarDelegate> delegate;
 
 @end

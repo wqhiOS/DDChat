@@ -7,7 +7,13 @@
 //
 
 #import "DDBaseViewController.h"
+@class DDChatToolBar,DDChatEmojiKeyboard,DDChatRecordIndicatorView;
 
 @interface DDChatViewController : DDBaseViewController
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) DDChatToolBar *chatToolBar;
+@property (nonatomic, strong) DDChatRecordIndicatorView *recordIndicatorView;
+@property (nonatomic, strong) DDChatEmojiKeyboard *emojiKeyboard;
 
 @end

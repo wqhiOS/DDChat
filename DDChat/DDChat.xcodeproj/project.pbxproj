@@ -35,6 +35,10 @@
 		E34ACBE020AEC3B900ED693A /* DDAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */; };
 		E34ACBE320AEC3C300ED693A /* DDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */; };
 		E34ACBE620AECCE100ED693A /* DDChatRecordIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBE520AECCE100ED693A /* DDChatRecordIndicatorView.m */; };
+		E39DF56620B28ECD0067B6A1 /* DDChatEmojiKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E39DF56520B28ECD0067B6A1 /* DDChatEmojiKeyboard.m */; };
+		E39DF56A20B2BD660067B6A1 /* DDChatKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E39DF56920B2BD660067B6A1 /* DDChatKeyboard.m */; };
+		E39DF56D20B2C7BD0067B6A1 /* DDChatViewController+AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E39DF56C20B2C7BD0067B6A1 /* DDChatViewController+AudioRecorder.m */; };
+		E39DF57020B2CD3D0067B6A1 /* DDChatViewController+DDChatToolBarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E39DF56F20B2CD3D0067B6A1 /* DDChatViewController+DDChatToolBarDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +114,14 @@
 		E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAudioPlayer.m; sourceTree = "<group>"; };
 		E34ACBE420AECCE100ED693A /* DDChatRecordIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatRecordIndicatorView.h; sourceTree = "<group>"; };
 		E34ACBE520AECCE100ED693A /* DDChatRecordIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatRecordIndicatorView.m; sourceTree = "<group>"; };
+		E39DF56420B28ECD0067B6A1 /* DDChatEmojiKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatEmojiKeyboard.h; sourceTree = "<group>"; };
+		E39DF56520B28ECD0067B6A1 /* DDChatEmojiKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatEmojiKeyboard.m; sourceTree = "<group>"; };
+		E39DF56820B2BD660067B6A1 /* DDChatKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatKeyboard.h; sourceTree = "<group>"; };
+		E39DF56920B2BD660067B6A1 /* DDChatKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatKeyboard.m; sourceTree = "<group>"; };
+		E39DF56B20B2C7BD0067B6A1 /* DDChatViewController+AudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDChatViewController+AudioRecorder.h"; sourceTree = "<group>"; };
+		E39DF56C20B2C7BD0067B6A1 /* DDChatViewController+AudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DDChatViewController+AudioRecorder.m"; sourceTree = "<group>"; };
+		E39DF56E20B2CD3D0067B6A1 /* DDChatViewController+DDChatToolBarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDChatViewController+DDChatToolBarDelegate.h"; sourceTree = "<group>"; };
+		E39DF56F20B2CD3D0067B6A1 /* DDChatViewController+DDChatToolBarDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DDChatViewController+DDChatToolBarDelegate.m"; sourceTree = "<group>"; };
 		E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -342,9 +354,13 @@
 		E34ACBC920AE773100ED693A /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				E34ACBD920AEA42800ED693A /* ChatToolBar */,
 				E34ACBCA20AE773B00ED693A /* DDChatViewController.h */,
 				E34ACBCB20AE773B00ED693A /* DDChatViewController.m */,
+				E39DF56B20B2C7BD0067B6A1 /* DDChatViewController+AudioRecorder.h */,
+				E39DF56C20B2C7BD0067B6A1 /* DDChatViewController+AudioRecorder.m */,
+				E39DF56E20B2CD3D0067B6A1 /* DDChatViewController+DDChatToolBarDelegate.h */,
+				E39DF56F20B2CD3D0067B6A1 /* DDChatViewController+DDChatToolBarDelegate.m */,
+				E34ACBD920AEA42800ED693A /* ChatToolBar */,
 				E34ACBCD20AE775800ED693A /* DDChatCell.h */,
 				E34ACBCE20AE775800ED693A /* DDChatCell.m */,
 				E34ACBD020AE776700ED693A /* DDChatModel.h */,
@@ -362,6 +378,7 @@
 				E34ACBD720AEA42200ED693A /* DDPressToTalkButton.m */,
 				E34ACBE420AECCE100ED693A /* DDChatRecordIndicatorView.h */,
 				E34ACBE520AECCE100ED693A /* DDChatRecordIndicatorView.m */,
+				E39DF56720B28F030067B6A1 /* ChatEmojiKeyboard */,
 			);
 			path = ChatToolBar;
 			sourceTree = "<group>";
@@ -375,6 +392,17 @@
 				E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		E39DF56720B28F030067B6A1 /* ChatEmojiKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E39DF56820B2BD660067B6A1 /* DDChatKeyboard.h */,
+				E39DF56920B2BD660067B6A1 /* DDChatKeyboard.m */,
+				E39DF56420B28ECD0067B6A1 /* DDChatEmojiKeyboard.h */,
+				E39DF56520B28ECD0067B6A1 /* DDChatEmojiKeyboard.m */,
+			);
+			path = ChatEmojiKeyboard;
 			sourceTree = "<group>";
 		};
 		E578D54C3E8280675B29FA79 /* Frameworks */ = {
@@ -558,13 +586,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E34ACBCF20AE775800ED693A /* DDChatCell.m in Sources */,
+				E39DF56D20B2C7BD0067B6A1 /* DDChatViewController+AudioRecorder.m in Sources */,
 				E34ACBD220AE776700ED693A /* DDChatModel.m in Sources */,
 				E34ACB6D20AE6E7D00ED693A /* main.m in Sources */,
+				E39DF56620B28ECD0067B6A1 /* DDChatEmojiKeyboard.m in Sources */,
 				E34ACBC720AE701600ED693A /* DDMineViewController.m in Sources */,
+				E39DF57020B2CD3D0067B6A1 /* DDChatViewController+DDChatToolBarDelegate.m in Sources */,
 				E34ACBCC20AE773B00ED693A /* DDChatViewController.m in Sources */,
 				E34ACBC620AE701600ED693A /* DDHomeViewController.m in Sources */,
 				E34ACBC120AE701600ED693A /* DDAddressBookModel.m in Sources */,
 				E34ACBE320AEC3C300ED693A /* DDAudioPlayer.m in Sources */,
+				E39DF56A20B2BD660067B6A1 /* DDChatKeyboard.m in Sources */,
 				E34ACBBD20AE701600ED693A /* DDTabBarController.m in Sources */,
 				E34ACBE020AEC3B900ED693A /* DDAudioRecorder.m in Sources */,
 				E34ACBD520AE79B300ED693A /* DDChatToolBar.m in Sources */,

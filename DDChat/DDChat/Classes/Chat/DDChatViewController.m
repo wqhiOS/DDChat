@@ -11,13 +11,18 @@
 #import "DDChatModel.h"
 #import "DDChatToolBar.h"
 #import "DDAudioRecorder.h"
+#import "DDChatEmojiKeyboard.h"
 #import "DDChatRecordIndicatorView.h"
 
-@interface DDChatViewController ()<UITableViewDataSource,UITableViewDelegate,DDChatToolBarRecordDelegate>
+#import "DDChatViewController+AudioRecorder.h"
+#import "DDChatViewController+DDChatToolBarDelegate.h"
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) DDChatToolBar *chatToolBar;
-@property (nonatomic, strong) DDChatRecordIndicatorView *recordIndicatorView;
+@interface DDChatViewController ()<UITableViewDataSource,UITableViewDelegate,DDChatKeyboardDelegate>
+{
+    DDChatToolBarStatus lastStatus;
+    DDChatToolBarStatus curStatus;
+}
+
 
 @property (nonatomic, strong) NSMutableArray *messages;
 
@@ -32,6 +37,13 @@
     self.title = @"fjy";
     [self loadData];
     [self setupUI];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)tap:(UITapGestureRecognizer *)ges {
+    [self.chatToolBar resignFirstResponder];
 }
 
 - (void)loadData {
@@ -75,6 +87,7 @@
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.chatToolBar];
     [self.view addSubview:self.recordIndicatorView];
+    [self.view addSubview:self.emojiKeyboard];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
@@ -101,10 +114,12 @@
     }
     return _tableView;
 }
+
 - (DDChatToolBar *)chatToolBar {
     if (!_chatToolBar) {
         _chatToolBar = [[DDChatToolBar alloc] init];
         _chatToolBar.recordDelegate = self;
+        _chatToolBar.delegate = self;
     }
     return _chatToolBar;
 }
@@ -117,66 +132,43 @@
     return _recordIndicatorView;
 }
 
-#pragma mark - DDChatToolBarRecordDelegate
-- (void)chatToolBarStartRecord {
-    self.recordIndicatorView.hidden = NO;
-    
-    __block NSInteger timeCount = 0;
-    [[DDAudioRecorder defaultRecorder] startRecordingWithVolumeChangedBlock:^(CGFloat volume) {
-        timeCount++;
-        if (timeCount == 1) {
-            NSLog(@"录制了1s，添加语音视图");
-        }
-        NSLog(@"volume:%f",volume);
-        self.recordIndicatorView.volume = volume;
-    } completeBlock:^(NSString *path, CGFloat time) {
-        if (time < 1) {
-            self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusTooShort;
-        }else {
-            self.recordIndicatorView.hidden = YES;
-            if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-                NSString *fileName = [NSString stringWithFormat:@"%.0lf.caf", [NSDate date].timeIntervalSince1970 * 1000];
+- (DDChatEmojiKeyboard *)emojiKeyboard {
+    if (!_emojiKeyboard) {
+        _emojiKeyboard = [[DDChatEmojiKeyboard alloc] initWithFrame:CGRectZero];
+        _emojiKeyboard.keyboardDelegate = self;
+    }
+    return _emojiKeyboard;
+}
 
-                NSError *error;
-                NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:fileName];
+#pragma mark - DDC
+- (void)chatKeyboardWillShow:(id)keyboard animated:(BOOL)animated
+{
+//    [self.messageDisplayView scrollToBottomWithAnimation:YES];
+}
 
-                [[NSFileManager defaultManager] moveItemAtPath:path toPath:filePath error:&error];
-                if (error) {
-                    NSLog(@"录音文件出错: %@", error);
-                    return;
-                }
+- (void)chatKeyboardDidShow:(id)keyboard animated:(BOOL)animated
+{
+//    if (curStatus == TLChatBarStatusMore && lastStatus == TLChatBarStatusEmoji) {
+//        [self.emojiKeyboard dismissWithAnimation:NO];
+//    }
+//    else if (curStatus == TLChatBarStatusEmoji && lastStatus == TLChatBarStatusMore) {
+//        [self.moreKeyboard dismissWithAnimation:NO];
+//    }
+//    [self.messageDisplayView scrollToBottomWithAnimation:YES];
+}
 
-                NSLog(@"发送语音消息：%@",filePath);
-            }
-        }
-    } cancelBlock:^{
-
-        self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusRecording;
+- (void)chatKeyboard:(id)keyboard didChangeHeight:(CGFloat)height
+{
+    [self.chatToolBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.view).mas_offset(-height);
     }];
-    
+    [self.view layoutIfNeeded];
+//    [self.messageDisplayView scrollToBottomWithAnimation:YES];
 }
-- (void)chatToolBarRecording:(BOOL)cancel {
-    if (cancel) {
-        self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusWillCancel;
-    }else {
-        self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusRecording;
-    }
-}
-- (void)chatToolBarEndRecord:(BOOL)complete {
-    if (complete) {
-        [[DDAudioRecorder defaultRecorder] stopRecording];
-    }else {
-        [[DDAudioRecorder defaultRecorder] cancelRecording];
-    }
-    if (self.recordIndicatorView.recordIndicatorStatus == DDChatRecordIndicatorViewStatusTooShort) {
-        return;
-    }
-    self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusEnd;
 
-}
-- (void)chatToolBarCancelRecord {
-    [[DDAudioRecorder defaultRecorder] cancelRecording];
-}
+
+
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -200,11 +192,18 @@
 - (void)keyboardFrameWillChange:(NSNotification *)notification
 {
     CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSLog(@"KEYBOARD:%@",NSStringFromCGRect(keyboardFrame));
     [self.chatToolBar mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(self.view).mas_offset(-keyboardFrame.size.height);
+        if (keyboardFrame.origin.y == [UIScreen mainScreen].bounds.size.height) {
+             make.bottom.mas_equalTo(self.view).mas_offset(0);
+        }else {
+             make.bottom.mas_equalTo(self.view).mas_offset(-keyboardFrame.size.height);
+        }
+       
     }];
     [self.view layoutIfNeeded];
 }
+
 
 
 @end

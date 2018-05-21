@@ -9,7 +9,7 @@
 #import "DDChatToolBar.h"
 #import "DDPressToTalkButton.h"
 
-@interface DDChatToolBar()
+@interface DDChatToolBar()<UITextViewDelegate>
 @property (nonatomic, strong) UIButton *voiceButton;
 @property (nonatomic, strong) UITextView *inputTextView;
 @property (nonatomic, strong) DDPressToTalkButton *pressToTalkButton;
@@ -30,11 +30,111 @@
 
 #pragma mark - Action
 - (void)voiceButtonClick:(UIButton *)button {
-    self.pressToTalkButton.hidden = !self.pressToTalkButton.isHidden;
-    if (self.inputTextView.isFirstResponder) {
-        [self.inputTextView resignFirstResponder];
+    
+    if (self.status == DDChatToolBarStatusVoice) {
+        
+        self.pressToTalkButton.hidden = YES;
+        [self.inputTextView becomeFirstResponder];
+        
+        [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard"] forState:UIControlStateNormal];
+        [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard_HL"] forState:UIControlStateHighlighted];
+        
+        self.status = DDChatToolBarStatusKeyboard;
+        
+        if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
+            [self.delegate chatToolBarFromStatus:DDChatToolBarStatusVoice toStatus:DDChatToolBarStatusKeyboard];
+        }
+        
+    }else {
+        
+        [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_voice"] forState:UIControlStateNormal];
+        [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_voice_HL"] forState:UIControlStateHighlighted];
+        
+        self.pressToTalkButton.hidden = NO;
+    
+        if ([self.inputTextView isFirstResponder]) {
+            [self.inputTextView resignFirstResponder];
+        }
+        if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
+            [self.delegate chatToolBarFromStatus:self.status toStatus:DDChatToolBarStatusVoice];
+        }
+        self.status = DDChatToolBarStatusVoice;
+        
     }
+    
 }
+- (void)emojiButtonClick:(UIButton *)button{
+    
+    if (self.status == DDChatToolBarStatusEmoji) {
+        
+        [self.inputTextView becomeFirstResponder];
+        
+        [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_emotion"] forState:UIControlStateNormal];
+        [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_emotion_HL"] forState:UIControlStateHighlighted];
+        
+        if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
+            [self.delegate chatToolBarFromStatus:DDChatToolBarStatusEmoji toStatus:DDChatToolBarStatusKeyboard];
+        }
+        
+        self.status = DDChatToolBarStatusKeyboard;
+    }else {
+        
+        if (!self.pressToTalkButton.isHidden) {
+            self.pressToTalkButton.hidden = YES;
+            [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_voice"] forState:UIControlStateNormal];
+            [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_voice_HL"] forState:UIControlStateHighlighted];
+        }
+        [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard"] forState:UIControlStateNormal];
+        [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard_HL"] forState:UIControlStateHighlighted];
+        
+        if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
+            [self.delegate chatToolBarFromStatus:self.status toStatus:DDChatToolBarStatusEmoji];
+        }
+        
+        self.status = DDChatToolBarStatusEmoji;
+    }
+    
+}
+- (void)moreButtonClick:(UIButton *)button {
+    
+}
+
+//- (void)setStatus:(DDChatToolBarStatus)status {
+//    _status = status;
+//    switch (status) {
+//        case DDChatToolBarStatusVoice:
+//        {
+//            [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard"] forState:UIControlStateNormal];
+//            [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard_HL"] forState:UIControlStateHighlighted];
+//        }
+//            break;
+//        case DDChatToolBarStatusInit:
+//        {
+//            [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_voice"] forState:UIControlStateNormal];
+//            [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_voice_HL"] forState:UIControlStateHighlighted];
+//        }
+//            break;
+//        case DDChatToolBarStatusKeyboard:
+//        {
+//            [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_voice"] forState:UIControlStateNormal];
+//            [self.voiceButton setImage:[UIImage imageNamed:@"chat_toolbar_voice_HL"] forState:UIControlStateHighlighted];
+//        }
+//            break;
+//        case DDChatToolBarStatusEmoji:
+//        {
+//
+//        }
+//            break;
+//        case DDChatToolBarStatusMore:
+//        {
+//
+//        }
+//            break;
+//
+//        default:
+//            break;
+//    }
+//}
 #pragma mark - UI
 - (void)setupUI {
     self.voiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -50,6 +150,7 @@
     self.inputTextView.layer.borderWidth = BORDER_WIDTH_1PX;
     self.inputTextView.layer.borderColor = [UIColor colorWithWhite:0.0 alpha:0.3].CGColor;
     self.inputTextView.layer.cornerRadius = 4.0f;
+    self.inputTextView.delegate = self;
     [self addSubview:self.inputTextView];
     
     
@@ -77,11 +178,13 @@
     self.emojiButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_emotion"] forState:UIControlStateNormal];
     [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_emotion_HL"] forState:UIControlStateHighlighted];
+    [self.emojiButton addTarget:self action:@selector(emojiButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.emojiButton];
     
     self.moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.moreButton setImage:[UIImage imageNamed:@"chat_toolbar_more"] forState:UIControlStateNormal];
     [self.moreButton setImage:[UIImage imageNamed:@"chat_toolbar_more_HL"] forState:UIControlStateHighlighted];
+    [self.moreButton addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.moreButton];
     
     //constraint
@@ -115,5 +218,32 @@
     }];
     
 }
+
+#pragma mark - UITextViewDelegate
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if (self.status != DDChatToolBarStatusKeyboard) {
+        self.status == DDChatToolBarStatusKeyboard;
+    }
+    return YES;
+}
+
+#pragma mark - overrid
+- (BOOL)resignFirstResponder
+{
+//    [self.moreButton setImage:kMoreImage imageHL:kMoreImageHL];
+//    [self.emojiButton setImage:kEmojiImage imageHL:kEmojiImageHL];
+//    if (self.status == TLChatBarStatusKeyboard) {
+//        [self.textView resignFirstResponder];
+//        self.status = TLChatBarStatusInit;
+//        if (self.delegate && [self.delegate respondsToSelector:@selector(chatBar:changeStatusFrom:to:)]) {
+//            [self.delegate chatBar:self changeStatusFrom:self.status to:TLChatBarStatusInit];
+//        }
+//    }
+    
+//    return [super resignFirstResponder];
+    [self.inputTextView resignFirstResponder];
+    return [super resignFirstResponder];
+}
+
 
 @end
