@@ -14,6 +14,11 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DDChatToolBar *chatToolBar;
 @property (nonatomic, strong) DDChatRecordIndicatorView *recordIndicatorView;
+
+
+/**
+ 表情键盘
+ */
 @property (nonatomic, strong) DDChatEmojiKeyboard *emojiKeyboard;
 
 @end

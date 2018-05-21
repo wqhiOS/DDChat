@@ -16,8 +16,18 @@
 
 @implementation DDChatEmojiKeyboard
 
++ (instancetype)defaultKeyboard {
+    static dispatch_once_t onceToken;
+    static DDChatEmojiKeyboard *instance;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        
         self.backgroundColor = [UIColor redColor];
     }
     return self;

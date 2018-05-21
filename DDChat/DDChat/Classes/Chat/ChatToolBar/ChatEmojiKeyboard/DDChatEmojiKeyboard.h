@@ -10,6 +10,6 @@
 
 @interface DDChatEmojiKeyboard : DDChatKeyboard
 
-
++ (instancetype)defaultKeyboard;
 
 @end

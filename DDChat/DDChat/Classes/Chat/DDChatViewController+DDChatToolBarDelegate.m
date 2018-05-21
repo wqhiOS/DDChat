@@ -14,7 +14,10 @@
 
 #pragma mark - DDChatToolBarDelegate
 - (void)chatToolBarFromStatus:(DDChatToolBarStatus)fromStatus toStatus:(DDChatToolBarStatus)toStatus {
+    
     if (toStatus == DDChatToolBarStatusVoice) {
+        
+        
         
     }else if (toStatus == DDChatToolBarStatusKeyboard) {
         

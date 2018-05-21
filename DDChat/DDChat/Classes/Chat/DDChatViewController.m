@@ -109,7 +109,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.dataSource= self;
         _tableView.delegate= self;
-        _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+//        _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         [_tableView registerClass:[DDChatCell class] forCellReuseIdentifier:@"cellId"];
     }
     return _tableView;
@@ -134,7 +134,7 @@
 
 - (DDChatEmojiKeyboard *)emojiKeyboard {
     if (!_emojiKeyboard) {
-        _emojiKeyboard = [[DDChatEmojiKeyboard alloc] initWithFrame:CGRectZero];
+        _emojiKeyboard = [DDChatEmojiKeyboard defaultKeyboard];
         _emojiKeyboard.keyboardDelegate = self;
     }
     return _emojiKeyboard;
@@ -144,6 +144,7 @@
 - (void)chatKeyboardWillShow:(id)keyboard animated:(BOOL)animated
 {
 //    [self.messageDisplayView scrollToBottomWithAnimation:YES];
+    
 }
 
 - (void)chatKeyboardDidShow:(id)keyboard animated:(BOOL)animated

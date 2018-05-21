@@ -90,7 +90,7 @@
         if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
             [self.delegate chatToolBarFromStatus:self.status toStatus:DDChatToolBarStatusEmoji];
         }
-        
+        [self.inputTextView resignFirstResponder];
         self.status = DDChatToolBarStatusEmoji;
     }
     
@@ -222,7 +222,11 @@
 #pragma mark - UITextViewDelegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     if (self.status != DDChatToolBarStatusKeyboard) {
-        self.status == DDChatToolBarStatusKeyboard;
+
+        if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
+            [self.delegate chatToolBarFromStatus:self.status toStatus:DDChatToolBarStatusKeyboard];
+        }
+        self.status = DDChatToolBarStatusKeyboard;
     }
     return YES;
 }
