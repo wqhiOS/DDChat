@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+
+#define     PATH_RECFILE  [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingString:@"rec.caf"]
+
 @interface DDAudioRecorder : NSObject
 
 + (instancetype)defaultRecorder;

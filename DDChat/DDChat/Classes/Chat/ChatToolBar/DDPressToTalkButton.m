@@ -20,16 +20,22 @@ typedef NS_ENUM(NSInteger,DDPressToTalkButtonState) {
 
 @property (nonatomic, copy) void(^touchbegin)(void);
 @property (nonatomic, copy) void(^touchMove)(BOOL);
-@property (nonatomic, copy) void(^touchEnd)(void) ;
+@property (nonatomic, copy) void(^touchEnd)(BOOL) ;
 @property (nonatomic, copy) void(^touchCancel)(void) ;
+
+/**
+ YES 代表录制结束。NO代表取消录制
+ */
+@property (nonatomic, assign) BOOL isComplete;
 
 @end
 
 @implementation DDPressToTalkButton
 
-- (instancetype)initWithFrame:(CGRect)frame touchBeginAction:(void (^)(void))touchBegin touchMoveAction:(void (^)(BOOL))touchMove touchEndAction:(void (^)(void))touchEnd touchCancelAction:(void (^)(void))touchCancel {
+- (instancetype)initWithFrame:(CGRect)frame touchBeginAction:(void (^)(void))touchBegin touchMoveAction:(void (^)(BOOL))touchMove touchEndAction:(void (^)(BOOL))touchEnd touchCancelAction:(void (^)(void))touchCancel {
     
     if (self = [super initWithFrame:frame]) {
+        
         self.touchbegin = touchBegin;
         self.touchMove = touchMove;
         self.touchEnd = touchEnd;
@@ -41,6 +47,8 @@ typedef NS_ENUM(NSInteger,DDPressToTalkButtonState) {
         self.layer.borderWidth = BORDER_WIDTH_1PX;
         self.layer.borderColor = [UIColor colorWithWhite:0.0 alpha:0.3].CGColor;;
         self.layer.cornerRadius = 4.0f;
+        
+        [self setTitleColor:HexColor(0x444444) forState:UIControlStateNormal];
     }
     return self;
 }
@@ -54,6 +62,7 @@ typedef NS_ENUM(NSInteger,DDPressToTalkButtonState) {
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.pressToTalkButtonState = DDPressToTalkButtonStateHighlighted;
+    self.isComplete = YES;
     if (self.touchbegin) {
         self.touchbegin();
     }
@@ -63,22 +72,26 @@ typedef NS_ENUM(NSInteger,DDPressToTalkButtonState) {
     
     if (point.y < -40) {
         self.pressToTalkButtonState = DDPressToTalkButtonStateCancel;
+        self.isComplete = NO;
         if (self.touchMove) {
-            self.touchMove(YES);
+            self.touchMove(YES);//YES代表取消
         }
     }else {
+        
         if (self.pressToTalkButtonState != DDPressToTalkButtonStateHighlighted) {
             self.pressToTalkButtonState = DDPressToTalkButtonStateHighlighted;
+            self.isComplete = YES;
             if (self.touchMove) {
-                self.touchMove(NO);
+                self.touchMove(NO);//NO代表不取消
             }
         }
     }
 }
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.pressToTalkButtonState = DDPressToTalkButtonStateNormal;
+    NSLog(@"%ld",self.isComplete);
     if (self.touchEnd) {
-        self.touchEnd();
+        self.touchEnd(self.isComplete);
     }
 }
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -92,7 +105,7 @@ typedef NS_ENUM(NSInteger,DDPressToTalkButtonState) {
         case DDPressToTalkButtonStateNormal:
         {
             [self setTitle:@"按住 说话" forState:UIControlStateNormal];
-            [self setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            [self setTitleColor:HexColor(0x444444) forState:UIControlStateNormal];
             self.backgroundColor = HexColor(0xF5F5F7);
             
         }

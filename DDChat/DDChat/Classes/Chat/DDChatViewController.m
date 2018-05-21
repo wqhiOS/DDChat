@@ -119,9 +119,41 @@
 
 #pragma mark - DDChatToolBarRecordDelegate
 - (void)chatToolBarStartRecord {
-//    [[DDAudioRecorder defaultRecorder] startRecordingWithVolumeChangedBlock:nil completeBlock:nil cancelBlock:nil];
     self.recordIndicatorView.hidden = NO;
-    self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusRecording;
+    
+    __block NSInteger timeCount = 0;
+    [[DDAudioRecorder defaultRecorder] startRecordingWithVolumeChangedBlock:^(CGFloat volume) {
+        timeCount++;
+        if (timeCount == 1) {
+            NSLog(@"录制了1s，添加语音视图");
+        }
+        NSLog(@"volume:%f",volume);
+        self.recordIndicatorView.volume = volume;
+    } completeBlock:^(NSString *path, CGFloat time) {
+        if (time < 1) {
+            self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusTooShort;
+        }else {
+            self.recordIndicatorView.hidden = YES;
+            if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+                NSString *fileName = [NSString stringWithFormat:@"%.0lf.caf", [NSDate date].timeIntervalSince1970 * 1000];
+
+                NSError *error;
+                NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:fileName];
+
+                [[NSFileManager defaultManager] moveItemAtPath:path toPath:filePath error:&error];
+                if (error) {
+                    NSLog(@"录音文件出错: %@", error);
+                    return;
+                }
+
+                NSLog(@"发送语音消息：%@",filePath);
+            }
+        }
+    } cancelBlock:^{
+
+        self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusRecording;
+    }];
+    
 }
 - (void)chatToolBarRecording:(BOOL)cancel {
     if (cancel) {
@@ -130,11 +162,20 @@
         self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusRecording;
     }
 }
-- (void)chatToolBarEndRecord {
-    self.recordIndicatorView.hidden = YES;
+- (void)chatToolBarEndRecord:(BOOL)complete {
+    if (complete) {
+        [[DDAudioRecorder defaultRecorder] stopRecording];
+    }else {
+        [[DDAudioRecorder defaultRecorder] cancelRecording];
+    }
+    if (self.recordIndicatorView.recordIndicatorStatus == DDChatRecordIndicatorViewStatusTooShort) {
+        return;
+    }
+    self.recordIndicatorView.recordIndicatorStatus = DDChatRecordIndicatorViewStatusEnd;
+
 }
 - (void)chatToolBarCancelRecord {
-//    [[DDAudioRecorder defaultRecorder] cancelRecording];
+    [[DDAudioRecorder defaultRecorder] cancelRecording];
 }
 
 #pragma mark - UITableViewDataSource
@@ -164,5 +205,6 @@
     }];
     [self.view layoutIfNeeded];
 }
+
 
 @end

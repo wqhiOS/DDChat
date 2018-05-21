@@ -14,7 +14,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
              touchBeginAction:(void (^)(void))touchBegin
               touchMoveAction:(void (^)(BOOL))touchMove
-               touchEndAction:(void (^)(void))touchEnd
+               touchEndAction:(void (^)(BOOL))touchEnd
             touchCancelAction:(void (^)(void))touchCancel;
 
 

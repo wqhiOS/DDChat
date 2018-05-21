@@ -26,6 +26,21 @@
     return self;
 }
 
+- (void)setVolume:(CGFloat)volume
+{
+    _volume = volume;
+    
+    NSInteger picId = 10 * volume;
+    if (picId < 1) {
+        picId = 1;
+    }else if(picId > 8){
+        picId = 8;
+    }
+    
+    [self.signalImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"chat_record_signal_%ld", (long)picId]]];
+}
+
+
 - (void)setupUI {
     self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
     self.layer.cornerRadius = 10;
@@ -46,6 +61,7 @@
     self.promptLabel.textColor = [UIColor whiteColor];
     self.promptLabel.layer.cornerRadius = 4.f;
     self.promptLabel.layer.masksToBounds = YES;
+    self.promptLabel.text = @"手指上滑，取消发送";
     [self addSubview:self.promptLabel];
     
     [self.microphoneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,6 +82,7 @@
 }
 
 - (void)setRecordIndicatorStatus:(DDChatRecordIndicatorViewStatus)recordIndicatorStatus {
+    NSLog(@"%d--%s",recordIndicatorStatus,__FUNCTION__);
     _recordIndicatorStatus = recordIndicatorStatus;
     switch (recordIndicatorStatus) {
         case DDChatRecordIndicatorViewStatusRecording:
@@ -75,6 +92,7 @@
             
             self.centerImageView.hidden = YES;
             self.microphoneImageView.hidden = NO;
+            self.signalImageView.image = [UIImage imageNamed:@"chat_record_signal_1"];
             self.signalImageView.hidden = NO;
             
         }
@@ -91,8 +109,14 @@
             break;
         case DDChatRecordIndicatorViewStatusTooShort:
         {
-            _recordIndicatorStatus = recordIndicatorStatus;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.promptLabel.backgroundColor = [UIColor clearColor];
+            self.promptLabel.text = @"手指上滑，取消发送";
+            
+            self.centerImageView.hidden = YES;
+            self.microphoneImageView.hidden = NO;
+            self.signalImageView.hidden = NO;
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 self.centerImageView.hidden = NO;
                 self.centerImageView.image = [UIImage imageNamed:@"chat_record_cancel"];
@@ -100,10 +124,18 @@
                 self.signalImageView.hidden = YES;
                 
                 self.promptLabel.text = @"说话时间太短";
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    self.recordIndicatorStatus = DDChatRecordIndicatorViewStatusEnd;
+                });
             });
         }
             break;
-            
+        case DDChatRecordIndicatorViewStatusEnd:
+        {
+            self.recordIndicatorStatus = DDChatRecordIndicatorViewStatusRecording;
+            self.hidden = YES;
+        }
+            break;
         default:
             break;
     }

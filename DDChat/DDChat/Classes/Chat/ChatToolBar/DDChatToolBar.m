@@ -31,6 +31,9 @@
 #pragma mark - Action
 - (void)voiceButtonClick:(UIButton *)button {
     self.pressToTalkButton.hidden = !self.pressToTalkButton.isHidden;
+    if (self.inputTextView.isFirstResponder) {
+        [self.inputTextView resignFirstResponder];
+    }
 }
 #pragma mark - UI
 - (void)setupUI {
@@ -59,9 +62,9 @@
         if ([self.recordDelegate respondsToSelector:@selector(chatToolBarRecording:)]) {
             [self.recordDelegate chatToolBarRecording:isWillCancel];
         }
-    } touchEndAction:^{
-        if ([self.recordDelegate respondsToSelector:@selector(chatToolBarEndRecord)]) {
-            [self.recordDelegate chatToolBarEndRecord];
+    } touchEndAction:^(BOOL isComplete){
+        if ([self.recordDelegate respondsToSelector:@selector(chatToolBarEndRecord:)]) {
+            [self.recordDelegate chatToolBarEndRecord:isComplete];
         }
     } touchCancelAction:^{
         if ([self.recordDelegate respondsToSelector:@selector(chatToolBarCancelRecord)]) {
