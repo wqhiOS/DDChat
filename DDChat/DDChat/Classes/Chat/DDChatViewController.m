@@ -27,6 +27,10 @@
 
 @implementation DDChatViewController
 
+- (void)dealloc {
+    NSLog(@"%s",__FUNCTION__);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -147,14 +151,18 @@
 
 - (void)chatKeyboardDidShow:(id)keyboard animated:(BOOL)animated
 {
-//    if (lastStatus == TLChatBarStatusMore) {
-//        [self.moreKeyboard dismissWithAnimation:NO];
-//    }
+    if (curStatus != DDChatToolBarStatusKeyboard) {
+        return;
+    }
+     if (lastStatus == DDChatToolBarStatusEmoji) {
+        [self.emojiKeyboard dismissWithAnimation:NO];
+    }
     
 }
 
 - (void)chatKeyboard:(id)keyboard didChangeHeight:(CGFloat)height
 {
+
     NSLog(@"---:%f",height);
     [self.chatToolBar mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.view).mas_offset(-height);
@@ -187,10 +195,31 @@
 }
 
 #pragma mark - 键盘通知
+- (void)keyboardWillShow:(NSNotification *)nf {
+    if (curStatus != DDChatToolBarStatusKeyboard) {
+        return;
+    }
+}
+
 - (void)keyboardFrameWillChange:(NSNotification *)notification
 {
+    if (curStatus != DDChatToolBarStatusKeyboard) {
+        return;
+    }
     CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSLog(@"KEYBOARD:%@",NSStringFromCGRect(keyboardFrame));
+    if (curStatus != DDChatToolBarStatusKeyboard && lastStatus != DDChatToolBarStatusKeyboard) {
+        return;
+    }
+    if (lastStatus == DDChatToolBarStatusMore || lastStatus == DDChatToolBarStatusEmoji) {
+        //        if (keyboardFrame.size.height <= 215.f) {
+        //            return;
+        //        }
+        //        return;
+    }
+    else if (curStatus == DDChatToolBarStatusEmoji || curStatus == DDChatToolBarStatusMore) {
+        return;
+    }
     [self.chatToolBar mas_updateConstraints:^(MASConstraintMaker *make) {
         if (keyboardFrame.origin.y == [UIScreen mainScreen].bounds.size.height) {
              make.bottom.mas_equalTo(self.view).mas_offset(0);
@@ -203,6 +232,9 @@
 }
 - (void)keyboardDidShow:(NSNotification *)notification
 {
+    if (curStatus != DDChatToolBarStatusKeyboard && lastStatus != DDChatToolBarStatusKeyboard) {
+        return;
+    }
     if (lastStatus == DDChatToolBarStatusEmoji) {
         [self.emojiKeyboard dismissWithAnimation:NO];
     }

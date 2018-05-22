@@ -89,11 +89,12 @@
         [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard"] forState:UIControlStateNormal];
         [self.emojiButton setImage:[UIImage imageNamed:@"chat_toolbar_keyboard_HL"] forState:UIControlStateHighlighted];
         
-        [self.inputTextView resignFirstResponder];
+        
         if ([self.delegate respondsToSelector:@selector(chatToolBarFromStatus:toStatus:)]) {
             [self.delegate chatToolBarFromStatus:self.status toStatus:DDChatToolBarStatusEmoji];
         }
         
+        [self.inputTextView resignFirstResponder];
         self.status = DDChatToolBarStatusEmoji;
     }
     
