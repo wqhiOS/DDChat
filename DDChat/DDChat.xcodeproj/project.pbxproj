@@ -21,6 +21,8 @@
 		E335FEEB20B6B6BD00A1143E /* DDPressToTalkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEDA20B6B6BD00A1143E /* DDPressToTalkButton.m */; };
 		E335FEEC20B6B6BD00A1143E /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEDF20B6B6BD00A1143E /* UIButton+Extensions.m */; };
 		E335FEED20B6B6BD00A1143E /* DDChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEE020B6B6BD00A1143E /* DDChatToolBar.m */; };
+		E335FEF020B6BF5200A1143E /* DDAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEEF20B6BF5200A1143E /* DDAddFriendViewController.m */; };
+		E335FEF320B6CCEF00A1143E /* DDChatMessageHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEF220B6CCEF00A1143E /* DDChatMessageHandle.m */; };
 		E34ACB5F20AE6E7C00ED693A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB5E20AE6E7C00ED693A /* AppDelegate.m */; };
 		E34ACB6D20AE6E7D00ED693A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB6C20AE6E7D00ED693A /* main.m */; };
 		E34ACB7720AE6E7D00ED693A /* DDChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB7620AE6E7D00ED693A /* DDChatTests.m */; };
@@ -96,6 +98,10 @@
 		E335FEDE20B6B6BD00A1143E /* UIButton+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extensions.h"; sourceTree = "<group>"; };
 		E335FEDF20B6B6BD00A1143E /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extensions.m"; sourceTree = "<group>"; };
 		E335FEE020B6B6BD00A1143E /* DDChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatToolBar.m; sourceTree = "<group>"; };
+		E335FEEE20B6BF5200A1143E /* DDAddFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAddFriendViewController.h; sourceTree = "<group>"; };
+		E335FEEF20B6BF5200A1143E /* DDAddFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAddFriendViewController.m; sourceTree = "<group>"; };
+		E335FEF120B6CCEF00A1143E /* DDChatMessageHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatMessageHandle.h; sourceTree = "<group>"; };
+		E335FEF220B6CCEF00A1143E /* DDChatMessageHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatMessageHandle.m; sourceTree = "<group>"; };
 		E34ACB5A20AE6E7C00ED693A /* DDChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34ACB5D20AE6E7C00ED693A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E34ACB5E20AE6E7C00ED693A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -427,6 +433,8 @@
 				E34ACBB020AE701600ED693A /* DDAddressBookViewController.m */,
 				E34ACBB320AE701600ED693A /* DDAddressBookSearchController.h */,
 				E34ACBB120AE701600ED693A /* DDAddressBookSearchController.m */,
+				E335FEEE20B6BF5200A1143E /* DDAddFriendViewController.h */,
+				E335FEEF20B6BF5200A1143E /* DDAddFriendViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -475,6 +483,8 @@
 		E34ACBDD20AEC3A400ED693A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				E335FEF120B6CCEF00A1143E /* DDChatMessageHandle.h */,
+				E335FEF220B6CCEF00A1143E /* DDChatMessageHandle.m */,
 				E367947720B5199800B4093F /* UIButton+Extensions */,
 				E34ACBDE20AEC3B900ED693A /* DDAudioRecorder.h */,
 				E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */,
@@ -701,9 +711,11 @@
 				E34ACBC320AE701600ED693A /* DDAddressBookViewController.m in Sources */,
 				E34ACB5F20AE6E7C00ED693A /* AppDelegate.m in Sources */,
 				E335FEEC20B6B6BD00A1143E /* UIButton+Extensions.m in Sources */,
+				E335FEF320B6CCEF00A1143E /* DDChatMessageHandle.m in Sources */,
 				E335FEEA20B6B6BD00A1143E /* DDChatBaseViewController+chatToolBarTranslate.m in Sources */,
 				E34ACBBE20AE701600ED693A /* DDNavigationController.m in Sources */,
 				E34ACBC220AE701600ED693A /* DDAddressBookCell.m in Sources */,
+				E335FEF020B6BF5200A1143E /* DDAddFriendViewController.m in Sources */,
 				E34ACBC420AE701600ED693A /* DDAddressBookSearchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,14 @@
 #import "AppDelegate.h"
 #import "DDTabBarController.h"
 
-@interface AppDelegate ()
+/*
+ bHupU4xPHlNDYVf5g70DiWqOo4oQ66S4TwsfZLDZe0z+3OcNnX++wx1F/0OoMsFe4qE84vzEUSpTjUK2fWeONpLpeUGSnMHm
+ 18516503957
+ 
+ cJ7wi5lxldrXT0rE0PvJmGqOo4oQ66S4TwsfZLDZe0xEdF5Dje9tbuNJm1GRn8hKQ+8V3OB9KA+cC18eEBIWex7hgFUtgstd
+ 16602152440
+ */
+@interface AppDelegate ()<RCIMClientReceiveMessageDelegate>
 
 @end
 
@@ -31,7 +38,35 @@
     [self.window makeKeyAndVisible];
     self.window.rootViewController = [DDTabBarController new];
     
+    //接受消息
+    [self reciveMessages];
     return YES;
+}
+
+- (void)reciveMessages {
+    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+}
+/*!
+ 接收消息的回调方法
+ 
+ @param message     当前接收到的消息
+ @param nLeft       还剩余的未接收的消息数，left>=0
+ @param object      消息监听设置的key值
+ 
+ @discussion 如果您设置了IMlib消息监听之后，SDK在接收到消息时候会执行此方法。
+ 其中，left为还剩余的、还未接收的消息数量。比如刚上线一口气收到多条消息时，通过此方法，您可以获取到每条消息，left会依次递减直到0。
+ 您可以根据left数量来优化您的App体验和性能，比如收到大量消息时等待left为0再刷新UI。
+ object为您在设置消息接收监听时的key值。
+ */
+- (void)onReceived:(RCMessage *)message
+              left:(int)nLeft
+            object:(id)object {
+    if ([message.content isMemberOfClass:[RCTextMessage class]]) {
+        RCTextMessage *testMessage = (RCTextMessage *)message.content;
+        NSLog(@"消息内容：%@", testMessage.content);
+    }
+    
+    NSLog(@"还剩余的未接收的消息数：%d", nLeft);
 }
 
 

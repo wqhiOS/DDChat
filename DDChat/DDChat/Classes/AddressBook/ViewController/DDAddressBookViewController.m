@@ -11,6 +11,7 @@
 #import "DDAddressBookModel.h"
 #import "DDAddressBookSearchController.h"
 #import "DDChatViewController.h"
+#import "DDAddFriendViewController.h"
 
 @interface DDAddressBookViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchControllerDelegate,UISearchBarDelegate>
 
@@ -32,7 +33,13 @@
     [self setupSearch];
     
 }
+#pragma mark - Action
+- (void)addFriendItemClick:(UIBarButtonItem *)item {
+    DDAddFriendViewController *vc = [DDAddFriendViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
+#pragma mark - Data
 - (void)loadData {
     
     DDAddressBookModel *addressBookModel1 = [DDAddressBookModel new];
@@ -65,6 +72,8 @@
 #pragma mark - UI
 - (void)setupUI {
     [self.view addSubview:self.tableView];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"contacts_add_friend"] style:UIBarButtonItemStylePlain target:self action:@selector(addFriendItemClick:)];
 }
 
 - (void)setupSearch {
