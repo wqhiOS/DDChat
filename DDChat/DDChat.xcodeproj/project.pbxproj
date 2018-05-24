@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2A9C0FDBFDBFA06C25EF6B22 /* libPods-DDChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */; };
+		E335FEE120B6B6BD00A1143E /* DDChatBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEC020B6B6BD00A1143E /* DDChatBaseViewController.m */; };
+		E335FEE220B6B6BD00A1143E /* chatToolBar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E335FEC220B6B6BD00A1143E /* chatToolBar.xcassets */; };
+		E335FEE320B6B6BD00A1143E /* DDChatViewController+keyboardNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEC420B6B6BD00A1143E /* DDChatViewController+keyboardNotification.m */; };
+		E335FEE420B6B6BD00A1143E /* DDChatBaseViewController+ChatKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEC920B6B6BD00A1143E /* DDChatBaseViewController+ChatKeyboard.m */; };
+		E335FEE520B6B6BD00A1143E /* DDChatBaseKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FECA20B6B6BD00A1143E /* DDChatBaseKeyboard.m */; };
+		E335FEE620B6B6BD00A1143E /* DDChatMoreKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FECB20B6B6BD00A1143E /* DDChatMoreKeyboard.m */; };
+		E335FEE720B6B6BD00A1143E /* DDChatEmojiKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FECE20B6B6BD00A1143E /* DDChatEmojiKeyboard.m */; };
+		E335FEE820B6B6BD00A1143E /* DDEmojiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FECF20B6B6BD00A1143E /* DDEmojiCell.m */; };
+		E335FEE920B6B6BD00A1143E /* DDChatEmojiGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FED220B6B6BD00A1143E /* DDChatEmojiGroupView.m */; };
+		E335FEEA20B6B6BD00A1143E /* DDChatBaseViewController+chatToolBarTranslate.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FED820B6B6BD00A1143E /* DDChatBaseViewController+chatToolBarTranslate.m */; };
+		E335FEEB20B6B6BD00A1143E /* DDPressToTalkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEDA20B6B6BD00A1143E /* DDPressToTalkButton.m */; };
+		E335FEEC20B6B6BD00A1143E /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEDF20B6B6BD00A1143E /* UIButton+Extensions.m */; };
+		E335FEED20B6B6BD00A1143E /* DDChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E335FEE020B6B6BD00A1143E /* DDChatToolBar.m */; };
 		E34ACB5F20AE6E7C00ED693A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB5E20AE6E7C00ED693A /* AppDelegate.m */; };
 		E34ACB6D20AE6E7D00ED693A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB6C20AE6E7D00ED693A /* main.m */; };
 		E34ACB7720AE6E7D00ED693A /* DDChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACB7620AE6E7D00ED693A /* DDChatTests.m */; };
@@ -31,19 +44,7 @@
 		E34ACBD220AE776700ED693A /* DDChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBD120AE776700ED693A /* DDChatModel.m */; };
 		E34ACBE020AEC3B900ED693A /* DDAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */; };
 		E34ACBE320AEC3C300ED693A /* DDAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */; };
-		E367947B20B5199800B4093F /* DDChatBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E367945A20B5199800B4093F /* DDChatBaseViewController.m */; };
-		E367947C20B5199800B4093F /* chatToolBar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E367945C20B5199800B4093F /* chatToolBar.xcassets */; };
-		E367947D20B5199800B4093F /* DDChatViewController+keyboardNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E367945E20B5199800B4093F /* DDChatViewController+keyboardNotification.m */; };
-		E367947E20B5199800B4093F /* DDChatBaseViewController+ChatKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E367946320B5199800B4093F /* DDChatBaseViewController+ChatKeyboard.m */; };
-		E367947F20B5199800B4093F /* DDChatBaseKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E367946420B5199800B4093F /* DDChatBaseKeyboard.m */; };
-		E367948020B5199800B4093F /* DDChatMoreKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E367946520B5199800B4093F /* DDChatMoreKeyboard.m */; };
-		E367948120B5199800B4093F /* DDChatEmojiKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E367946820B5199800B4093F /* DDChatEmojiKeyboard.m */; };
-		E367948220B5199800B4093F /* DDEmojiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E367946920B5199800B4093F /* DDEmojiCell.m */; };
-		E367948320B5199800B4093F /* DDChatEmojiGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = E367946C20B5199800B4093F /* DDChatEmojiGroupView.m */; };
-		E367948420B5199800B4093F /* DDChatBaseViewController+chatToolBarTranslate.m in Sources */ = {isa = PBXBuildFile; fileRef = E367947220B5199800B4093F /* DDChatBaseViewController+chatToolBarTranslate.m */; };
-		E367948520B5199800B4093F /* DDPressToTalkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E367947420B5199800B4093F /* DDPressToTalkButton.m */; };
 		E367948620B5199800B4093F /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E367947920B5199800B4093F /* UIButton+Extensions.m */; };
-		E367948720B5199800B4093F /* DDChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E367947A20B5199800B4093F /* DDChatToolBar.m */; };
 		E367948A20B51A3200B4093F /* DDChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E367948920B51A3200B4093F /* DDChatViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,34 @@
 /* Begin PBXFileReference section */
 		429EF91DF6D92E1827AF8A15 /* Pods-DDChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDChat/Pods-DDChat.debug.xcconfig"; sourceTree = "<group>"; };
 		59C5C62F2DA623C42FD729B8 /* Pods-DDChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDChat/Pods-DDChat.release.xcconfig"; sourceTree = "<group>"; };
+		E335FEBF20B6B6BD00A1143E /* DDPressToTalkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPressToTalkButton.h; sourceTree = "<group>"; };
+		E335FEC020B6B6BD00A1143E /* DDChatBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatBaseViewController.m; sourceTree = "<group>"; };
+		E335FEC220B6B6BD00A1143E /* chatToolBar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = chatToolBar.xcassets; sourceTree = "<group>"; };
+		E335FEC320B6B6BD00A1143E /* DDChatToolBarCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBarCommon.h; sourceTree = "<group>"; };
+		E335FEC420B6B6BD00A1143E /* DDChatViewController+keyboardNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDChatViewController+keyboardNotification.m"; sourceTree = "<group>"; };
+		E335FEC520B6B6BD00A1143E /* DDChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBar.h; sourceTree = "<group>"; };
+		E335FEC720B6B6BD00A1143E /* DDChatKeyboardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatKeyboardDelegate.h; sourceTree = "<group>"; };
+		E335FEC820B6B6BD00A1143E /* DDChatMoreKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatMoreKeyboard.h; sourceTree = "<group>"; };
+		E335FEC920B6B6BD00A1143E /* DDChatBaseViewController+ChatKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDChatBaseViewController+ChatKeyboard.m"; sourceTree = "<group>"; };
+		E335FECA20B6B6BD00A1143E /* DDChatBaseKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatBaseKeyboard.m; sourceTree = "<group>"; };
+		E335FECB20B6B6BD00A1143E /* DDChatMoreKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatMoreKeyboard.m; sourceTree = "<group>"; };
+		E335FECC20B6B6BD00A1143E /* DDChatBaseViewController+ChatKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDChatBaseViewController+ChatKeyboard.h"; sourceTree = "<group>"; };
+		E335FECE20B6B6BD00A1143E /* DDChatEmojiKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatEmojiKeyboard.m; sourceTree = "<group>"; };
+		E335FECF20B6B6BD00A1143E /* DDEmojiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDEmojiCell.m; sourceTree = "<group>"; };
+		E335FED120B6B6BD00A1143E /* DDChatEmojiGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatEmojiGroupView.h; sourceTree = "<group>"; };
+		E335FED220B6B6BD00A1143E /* DDChatEmojiGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatEmojiGroupView.m; sourceTree = "<group>"; };
+		E335FED320B6B6BD00A1143E /* DDChatEmojiKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatEmojiKeyboard.h; sourceTree = "<group>"; };
+		E335FED420B6B6BD00A1143E /* DDEmojiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDEmojiCell.h; sourceTree = "<group>"; };
+		E335FED520B6B6BD00A1143E /* DDChatBaseKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatBaseKeyboard.h; sourceTree = "<group>"; };
+		E335FED720B6B6BD00A1143E /* DDChatBaseViewController+chatToolBarTranslate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDChatBaseViewController+chatToolBarTranslate.h"; sourceTree = "<group>"; };
+		E335FED820B6B6BD00A1143E /* DDChatBaseViewController+chatToolBarTranslate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDChatBaseViewController+chatToolBarTranslate.m"; sourceTree = "<group>"; };
+		E335FED920B6B6BD00A1143E /* DDChatToolBarTranslateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBarTranslateDelegate.h; sourceTree = "<group>"; };
+		E335FEDA20B6B6BD00A1143E /* DDPressToTalkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPressToTalkButton.m; sourceTree = "<group>"; };
+		E335FEDB20B6B6BD00A1143E /* DDChatViewController+keyboardNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDChatViewController+keyboardNotification.h"; sourceTree = "<group>"; };
+		E335FEDC20B6B6BD00A1143E /* DDChatBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatBaseViewController.h; sourceTree = "<group>"; };
+		E335FEDE20B6B6BD00A1143E /* UIButton+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extensions.h"; sourceTree = "<group>"; };
+		E335FEDF20B6B6BD00A1143E /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extensions.m"; sourceTree = "<group>"; };
+		E335FEE020B6B6BD00A1143E /* DDChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatToolBar.m; sourceTree = "<group>"; };
 		E34ACB5A20AE6E7C00ED693A /* DDChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34ACB5D20AE6E7C00ED693A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E34ACB5E20AE6E7C00ED693A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -112,34 +141,8 @@
 		E34ACBDF20AEC3B900ED693A /* DDAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAudioRecorder.m; sourceTree = "<group>"; };
 		E34ACBE120AEC3C300ED693A /* DDAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAudioPlayer.h; sourceTree = "<group>"; };
 		E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAudioPlayer.m; sourceTree = "<group>"; };
-		E367945920B5199800B4093F /* DDPressToTalkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPressToTalkButton.h; sourceTree = "<group>"; };
-		E367945A20B5199800B4093F /* DDChatBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatBaseViewController.m; sourceTree = "<group>"; };
-		E367945C20B5199800B4093F /* chatToolBar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = chatToolBar.xcassets; sourceTree = "<group>"; };
-		E367945D20B5199800B4093F /* DDChatToolBarCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBarCommon.h; sourceTree = "<group>"; };
-		E367945E20B5199800B4093F /* DDChatViewController+keyboardNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDChatViewController+keyboardNotification.m"; sourceTree = "<group>"; };
-		E367945F20B5199800B4093F /* DDChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBar.h; sourceTree = "<group>"; };
-		E367946120B5199800B4093F /* DDChatKeyboardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatKeyboardDelegate.h; sourceTree = "<group>"; };
-		E367946220B5199800B4093F /* DDChatMoreKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatMoreKeyboard.h; sourceTree = "<group>"; };
-		E367946320B5199800B4093F /* DDChatBaseViewController+ChatKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDChatBaseViewController+ChatKeyboard.m"; sourceTree = "<group>"; };
-		E367946420B5199800B4093F /* DDChatBaseKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatBaseKeyboard.m; sourceTree = "<group>"; };
-		E367946520B5199800B4093F /* DDChatMoreKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatMoreKeyboard.m; sourceTree = "<group>"; };
-		E367946620B5199800B4093F /* DDChatBaseViewController+ChatKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDChatBaseViewController+ChatKeyboard.h"; sourceTree = "<group>"; };
-		E367946820B5199800B4093F /* DDChatEmojiKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatEmojiKeyboard.m; sourceTree = "<group>"; };
-		E367946920B5199800B4093F /* DDEmojiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDEmojiCell.m; sourceTree = "<group>"; };
-		E367946B20B5199800B4093F /* DDChatEmojiGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatEmojiGroupView.h; sourceTree = "<group>"; };
-		E367946C20B5199800B4093F /* DDChatEmojiGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatEmojiGroupView.m; sourceTree = "<group>"; };
-		E367946D20B5199800B4093F /* DDChatEmojiKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatEmojiKeyboard.h; sourceTree = "<group>"; };
-		E367946E20B5199800B4093F /* DDEmojiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDEmojiCell.h; sourceTree = "<group>"; };
-		E367946F20B5199800B4093F /* DDChatBaseKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatBaseKeyboard.h; sourceTree = "<group>"; };
-		E367947120B5199800B4093F /* DDChatBaseViewController+chatToolBarTranslate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDChatBaseViewController+chatToolBarTranslate.h"; sourceTree = "<group>"; };
-		E367947220B5199800B4093F /* DDChatBaseViewController+chatToolBarTranslate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDChatBaseViewController+chatToolBarTranslate.m"; sourceTree = "<group>"; };
-		E367947320B5199800B4093F /* DDChatToolBarTranslateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatToolBarTranslateDelegate.h; sourceTree = "<group>"; };
-		E367947420B5199800B4093F /* DDPressToTalkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPressToTalkButton.m; sourceTree = "<group>"; };
-		E367947520B5199800B4093F /* DDChatViewController+keyboardNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDChatViewController+keyboardNotification.h"; sourceTree = "<group>"; };
-		E367947620B5199800B4093F /* DDChatBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDChatBaseViewController.h; sourceTree = "<group>"; };
 		E367947820B5199800B4093F /* UIButton+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extensions.h"; sourceTree = "<group>"; };
 		E367947920B5199800B4093F /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extensions.m"; sourceTree = "<group>"; };
-		E367947A20B5199800B4093F /* DDChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDChatToolBar.m; sourceTree = "<group>"; };
 		E367948820B51A3200B4093F /* DDChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDChatViewController.h; sourceTree = "<group>"; };
 		E367948920B51A3200B4093F /* DDChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDChatViewController.m; sourceTree = "<group>"; };
 		E9EFBA9C88A66DDEC2FE4207 /* libPods-DDChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +181,90 @@
 				59C5C62F2DA623C42FD729B8 /* Pods-DDChat.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E335FEBE20B6B6BD00A1143E /* DDChatToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				E335FEC320B6B6BD00A1143E /* DDChatToolBarCommon.h */,
+				E335FEC520B6B6BD00A1143E /* DDChatToolBar.h */,
+				E335FEE020B6B6BD00A1143E /* DDChatToolBar.m */,
+				E335FEBF20B6B6BD00A1143E /* DDPressToTalkButton.h */,
+				E335FEDA20B6B6BD00A1143E /* DDPressToTalkButton.m */,
+				E335FEDC20B6B6BD00A1143E /* DDChatBaseViewController.h */,
+				E335FEC020B6B6BD00A1143E /* DDChatBaseViewController.m */,
+				E335FEDB20B6B6BD00A1143E /* DDChatViewController+keyboardNotification.h */,
+				E335FEC420B6B6BD00A1143E /* DDChatViewController+keyboardNotification.m */,
+				E335FEC120B6B6BD00A1143E /* imageSource */,
+				E335FEC620B6B6BD00A1143E /* DDChatKeyboard */,
+				E335FED620B6B6BD00A1143E /* DDChatToolBarDelegate */,
+				E335FEDD20B6B6BD00A1143E /* UIButton+Extensions */,
+			);
+			name = DDChatToolBar;
+			path = ../../../../../../../Desktop/DDChatToolBar;
+			sourceTree = "<group>";
+		};
+		E335FEC120B6B6BD00A1143E /* imageSource */ = {
+			isa = PBXGroup;
+			children = (
+				E335FEC220B6B6BD00A1143E /* chatToolBar.xcassets */,
+			);
+			path = imageSource;
+			sourceTree = "<group>";
+		};
+		E335FEC620B6B6BD00A1143E /* DDChatKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E335FEC720B6B6BD00A1143E /* DDChatKeyboardDelegate.h */,
+				E335FEC820B6B6BD00A1143E /* DDChatMoreKeyboard.h */,
+				E335FEC920B6B6BD00A1143E /* DDChatBaseViewController+ChatKeyboard.m */,
+				E335FECA20B6B6BD00A1143E /* DDChatBaseKeyboard.m */,
+				E335FECB20B6B6BD00A1143E /* DDChatMoreKeyboard.m */,
+				E335FECC20B6B6BD00A1143E /* DDChatBaseViewController+ChatKeyboard.h */,
+				E335FECD20B6B6BD00A1143E /* DDChatEmojiKeyboard */,
+				E335FED520B6B6BD00A1143E /* DDChatBaseKeyboard.h */,
+			);
+			path = DDChatKeyboard;
+			sourceTree = "<group>";
+		};
+		E335FECD20B6B6BD00A1143E /* DDChatEmojiKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E335FECE20B6B6BD00A1143E /* DDChatEmojiKeyboard.m */,
+				E335FECF20B6B6BD00A1143E /* DDEmojiCell.m */,
+				E335FED020B6B6BD00A1143E /* DDChatEmojiGroupView */,
+				E335FED320B6B6BD00A1143E /* DDChatEmojiKeyboard.h */,
+				E335FED420B6B6BD00A1143E /* DDEmojiCell.h */,
+			);
+			path = DDChatEmojiKeyboard;
+			sourceTree = "<group>";
+		};
+		E335FED020B6B6BD00A1143E /* DDChatEmojiGroupView */ = {
+			isa = PBXGroup;
+			children = (
+				E335FED120B6B6BD00A1143E /* DDChatEmojiGroupView.h */,
+				E335FED220B6B6BD00A1143E /* DDChatEmojiGroupView.m */,
+			);
+			path = DDChatEmojiGroupView;
+			sourceTree = "<group>";
+		};
+		E335FED620B6B6BD00A1143E /* DDChatToolBarDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				E335FED720B6B6BD00A1143E /* DDChatBaseViewController+chatToolBarTranslate.h */,
+				E335FED820B6B6BD00A1143E /* DDChatBaseViewController+chatToolBarTranslate.m */,
+				E335FED920B6B6BD00A1143E /* DDChatToolBarTranslateDelegate.h */,
+			);
+			path = DDChatToolBarDelegate;
+			sourceTree = "<group>";
+		};
+		E335FEDD20B6B6BD00A1143E /* UIButton+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E335FEDE20B6B6BD00A1143E /* UIButton+Extensions.h */,
+				E335FEDF20B6B6BD00A1143E /* UIButton+Extensions.m */,
+			);
+			path = "UIButton+Extensions";
 			sourceTree = "<group>";
 		};
 		E34ACB5120AE6E7C00ED693A = {
@@ -374,11 +461,9 @@
 		E34ACBC920AE773100ED693A /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				E367947620B5199800B4093F /* DDChatBaseViewController.h */,
-				E367945A20B5199800B4093F /* DDChatBaseViewController.m */,
+				E335FEBE20B6B6BD00A1143E /* DDChatToolBar */,
 				E367948820B51A3200B4093F /* DDChatViewController.h */,
 				E367948920B51A3200B4093F /* DDChatViewController.m */,
-				E367945820B5199800B4093F /* DDChatToolBar */,
 				E34ACBCD20AE775800ED693A /* DDChatCell.h */,
 				E34ACBCE20AE775800ED693A /* DDChatCell.m */,
 				E34ACBD020AE776700ED693A /* DDChatModel.h */,
@@ -397,77 +482,6 @@
 				E34ACBE220AEC3C300ED693A /* DDAudioPlayer.m */,
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		E367945820B5199800B4093F /* DDChatToolBar */ = {
-			isa = PBXGroup;
-			children = (
-				E367945D20B5199800B4093F /* DDChatToolBarCommon.h */,
-				E367945F20B5199800B4093F /* DDChatToolBar.h */,
-				E367947A20B5199800B4093F /* DDChatToolBar.m */,
-				E367945920B5199800B4093F /* DDPressToTalkButton.h */,
-				E367947420B5199800B4093F /* DDPressToTalkButton.m */,
-				E367945B20B5199800B4093F /* imageSource */,
-				E367947520B5199800B4093F /* DDChatViewController+keyboardNotification.h */,
-				E367945E20B5199800B4093F /* DDChatViewController+keyboardNotification.m */,
-				E367946020B5199800B4093F /* DDChatKeyboard */,
-				E367947020B5199800B4093F /* DDChatToolBarDelegate */,
-			);
-			path = DDChatToolBar;
-			sourceTree = "<group>";
-		};
-		E367945B20B5199800B4093F /* imageSource */ = {
-			isa = PBXGroup;
-			children = (
-				E367945C20B5199800B4093F /* chatToolBar.xcassets */,
-			);
-			path = imageSource;
-			sourceTree = "<group>";
-		};
-		E367946020B5199800B4093F /* DDChatKeyboard */ = {
-			isa = PBXGroup;
-			children = (
-				E367946120B5199800B4093F /* DDChatKeyboardDelegate.h */,
-				E367946220B5199800B4093F /* DDChatMoreKeyboard.h */,
-				E367946320B5199800B4093F /* DDChatBaseViewController+ChatKeyboard.m */,
-				E367946420B5199800B4093F /* DDChatBaseKeyboard.m */,
-				E367946520B5199800B4093F /* DDChatMoreKeyboard.m */,
-				E367946620B5199800B4093F /* DDChatBaseViewController+ChatKeyboard.h */,
-				E367946720B5199800B4093F /* DDChatEmojiKeyboard */,
-				E367946F20B5199800B4093F /* DDChatBaseKeyboard.h */,
-			);
-			path = DDChatKeyboard;
-			sourceTree = "<group>";
-		};
-		E367946720B5199800B4093F /* DDChatEmojiKeyboard */ = {
-			isa = PBXGroup;
-			children = (
-				E367946820B5199800B4093F /* DDChatEmojiKeyboard.m */,
-				E367946920B5199800B4093F /* DDEmojiCell.m */,
-				E367946A20B5199800B4093F /* DDChatEmojiGroupView */,
-				E367946D20B5199800B4093F /* DDChatEmojiKeyboard.h */,
-				E367946E20B5199800B4093F /* DDEmojiCell.h */,
-			);
-			path = DDChatEmojiKeyboard;
-			sourceTree = "<group>";
-		};
-		E367946A20B5199800B4093F /* DDChatEmojiGroupView */ = {
-			isa = PBXGroup;
-			children = (
-				E367946B20B5199800B4093F /* DDChatEmojiGroupView.h */,
-				E367946C20B5199800B4093F /* DDChatEmojiGroupView.m */,
-			);
-			path = DDChatEmojiGroupView;
-			sourceTree = "<group>";
-		};
-		E367947020B5199800B4093F /* DDChatToolBarDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				E367947120B5199800B4093F /* DDChatBaseViewController+chatToolBarTranslate.h */,
-				E367947220B5199800B4093F /* DDChatBaseViewController+chatToolBarTranslate.m */,
-				E367947320B5199800B4093F /* DDChatToolBarTranslateDelegate.h */,
-			);
-			path = DDChatToolBarDelegate;
 			sourceTree = "<group>";
 		};
 		E367947720B5199800B4093F /* UIButton+Extensions */ = {
@@ -592,7 +606,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E367947C20B5199800B4093F /* chatToolBar.xcassets in Resources */,
+				E335FEE220B6B6BD00A1143E /* chatToolBar.xcassets in Resources */,
 				E34ACB9420AE6F7B00ED693A /* Info.plist in Resources */,
 				E34ACB9320AE6F7B00ED693A /* Assets.xcassets in Resources */,
 				E34ACB9B20AE6FCB00ED693A /* Main.storyboard in Resources */,
@@ -660,36 +674,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E367948720B5199800B4093F /* DDChatToolBar.m in Sources */,
+				E335FEED20B6B6BD00A1143E /* DDChatToolBar.m in Sources */,
 				E34ACBCF20AE775800ED693A /* DDChatCell.m in Sources */,
-				E367948120B5199800B4093F /* DDChatEmojiKeyboard.m in Sources */,
+				E335FEE720B6B6BD00A1143E /* DDChatEmojiKeyboard.m in Sources */,
 				E34ACBD220AE776700ED693A /* DDChatModel.m in Sources */,
-				E367948320B5199800B4093F /* DDChatEmojiGroupView.m in Sources */,
 				E34ACB6D20AE6E7D00ED693A /* main.m in Sources */,
-				E367948220B5199800B4093F /* DDEmojiCell.m in Sources */,
+				E335FEE920B6B6BD00A1143E /* DDChatEmojiGroupView.m in Sources */,
 				E34ACBC720AE701600ED693A /* DDMineViewController.m in Sources */,
+				E335FEE320B6B6BD00A1143E /* DDChatViewController+keyboardNotification.m in Sources */,
 				E34ACBC620AE701600ED693A /* DDHomeViewController.m in Sources */,
-				E367948420B5199800B4093F /* DDChatBaseViewController+chatToolBarTranslate.m in Sources */,
-				E367947B20B5199800B4093F /* DDChatBaseViewController.m in Sources */,
-				E367948520B5199800B4093F /* DDPressToTalkButton.m in Sources */,
 				E34ACBC120AE701600ED693A /* DDAddressBookModel.m in Sources */,
 				E34ACBE320AEC3C300ED693A /* DDAudioPlayer.m in Sources */,
+				E335FEE420B6B6BD00A1143E /* DDChatBaseViewController+ChatKeyboard.m in Sources */,
+				E335FEE820B6B6BD00A1143E /* DDEmojiCell.m in Sources */,
+				E335FEE120B6B6BD00A1143E /* DDChatBaseViewController.m in Sources */,
 				E367948620B5199800B4093F /* UIButton+Extensions.m in Sources */,
+				E335FEE620B6B6BD00A1143E /* DDChatMoreKeyboard.m in Sources */,
 				E34ACBBD20AE701600ED693A /* DDTabBarController.m in Sources */,
 				E34ACBE020AEC3B900ED693A /* DDAudioRecorder.m in Sources */,
 				E34ACBC520AE701600ED693A /* DDDiscoveryViewController.m in Sources */,
 				E367948A20B51A3200B4093F /* DDChatViewController.m in Sources */,
+				E335FEEB20B6B6BD00A1143E /* DDPressToTalkButton.m in Sources */,
 				E34ACBBF20AE701600ED693A /* DDBaseModel.m in Sources */,
-				E367947E20B5199800B4093F /* DDChatBaseViewController+ChatKeyboard.m in Sources */,
 				E34ACBC020AE701600ED693A /* DDBaseViewController.m in Sources */,
+				E335FEE520B6B6BD00A1143E /* DDChatBaseKeyboard.m in Sources */,
 				E34ACBC320AE701600ED693A /* DDAddressBookViewController.m in Sources */,
-				E367947D20B5199800B4093F /* DDChatViewController+keyboardNotification.m in Sources */,
 				E34ACB5F20AE6E7C00ED693A /* AppDelegate.m in Sources */,
+				E335FEEC20B6B6BD00A1143E /* UIButton+Extensions.m in Sources */,
+				E335FEEA20B6B6BD00A1143E /* DDChatBaseViewController+chatToolBarTranslate.m in Sources */,
 				E34ACBBE20AE701600ED693A /* DDNavigationController.m in Sources */,
-				E367947F20B5199800B4093F /* DDChatBaseKeyboard.m in Sources */,
 				E34ACBC220AE701600ED693A /* DDAddressBookCell.m in Sources */,
 				E34ACBC420AE701600ED693A /* DDAddressBookSearchController.m in Sources */,
-				E367948020B5199800B4093F /* DDChatMoreKeyboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,6 +879,7 @@
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
 				GCC_PREFIX_HEADER = "DDChat/Support File/DDChat_PrefixHeader.pch";
 				INFOPLIST_FILE = "DDChat/Support File/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -884,6 +900,7 @@
 				DEVELOPMENT_TEAM = 5E3A9G5UU5;
 				GCC_PREFIX_HEADER = "DDChat/Support File/DDChat_PrefixHeader.pch";
 				INFOPLIST_FILE = "DDChat/Support File/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
