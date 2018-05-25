@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DDChatMessageHandle : NSObject
+@interface DDChatMessageHandle : NSObject<RCIMClientReceiveMessageDelegate>
 
 + (instancetype)defaultHandle;
 

@@ -9,21 +9,58 @@
 #import "DDChatViewController.h"
 #import "DDChatModel.h"
 #import "DDChatCell.h"
-
+#import "DDAddressBookModel.h"
 @interface DDChatViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *messages;
+
+
+
+
 
 @end
 
 @implementation DDChatViewController
 
+- (instancetype)initWithAddressBookModel:(DDAddressBookModel *)addressBookModel {
+    if (self = [super init]) {
+        self.addressBookModel = addressBookModel;
+    }
+    return self;
+}
+
+- (instancetype)initWithTargetId:(NSString *)targetId {
+    if (self = [super init]) {
+        _targetId = targetId;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
-    [self loadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:Notification_RecivedMessage object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+       
+        RCMessage *message = note.userInfo[@"message"];
+        NSLog(@"收到消息 %@",message);
+    }];
+    
+    NSArray *getMessages = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_PRIVATE targetId:_targetId count:99];
+    self.messages  = [NSMutableArray array];
+    for (RCMessage *message in getMessages) {
+        [self.messages insertObject:message atIndex:0];
+    }
+    [self.tableView reloadData];
+    NSLog(@"%@",self.messages);
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.chatToolBar scrollViewToBottom:NO];
 }
 
 #pragma mark - setupUI
@@ -38,48 +75,15 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellId"];
     [self.tableView registerClass:[DDChatCell class] forCellReuseIdentifier:@"cellId"];
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     
     self.chatToolBar = [[DDChatToolBar alloc]initWithTableView:self.tableView];
     self.chatToolBar.translateDelegate = self;
+    self.chatToolBar.delegate = self;
    
-}
-
-
-- (void)loadData {
-    DDChatModel *model1 = [DDChatModel new];
-    model1.messageText = @"hello world!";
-    model1.roleType = DDMessageRolwTypeOthers;
-    model1.messageTime = @"08:51";
-    
-    DDChatModel *model2 = [DDChatModel new];
-    model2.messageText = @"hello world!hello world!hello world!hello world!hello world!hello world!";
-    model2.messageTime = @"08:53";
-    model2.roleType = DDMessageRolwTypeMe;
-    
-    DDChatModel *model3 = [DDChatModel new];
-    model3.messageText = @"hello world!hello world!hello world!hello world!hello world!hello world!你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界";
-    //    model3.messageTime = @"08:53";
-    model3.roleType = DDMessageRolwTypeMe;
-    
-    DDChatModel *model4 = [DDChatModel new];
-    model4.messageText = @"世界你好世界你好世界";
-    //    model4.messageTime = @"08:53";
-    model4.roleType = DDMessageRolwTypeMe;
-    
-    DDChatModel *model5 = [DDChatModel new];
-    model5.messageText = @"hello world!hello world!hello world!hello world!hello world!hello world!你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界";
-    model5.messageTime = @"09:05";
-    model5.roleType = DDMessageRolwTypeMe;
-    
-    DDChatModel *model6 = [DDChatModel new];
-    model6.messageText = @"hello world!hello world!hello world!hello world!hello world!hello world!你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界";
-    model6.messageTime = @"10:11";
-    model6.roleType = DDMessageRolwTypeMe;
-    
-    self.messages = @[model1,model2,model3,model4,model5,model6].mutableCopy;
 }
 
 #pragma mark - UITableViewDataSource
@@ -93,7 +97,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DDChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId" forIndexPath:indexPath];
-    cell.chatModel = self.messages[indexPath.row];
+    cell.message = self.messages[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -7,6 +7,7 @@
 //
 
 #import "DDMineViewController.h"
+#import "DDLoginViewController.h"
 
 @interface DDMineViewController ()
 
@@ -17,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userId"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [UIApplication sharedApplication].keyWindow.rootViewController = [[DDLoginViewController alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

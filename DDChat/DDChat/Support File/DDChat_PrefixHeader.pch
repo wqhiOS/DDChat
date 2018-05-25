@@ -14,11 +14,14 @@
 #import <Foundation/Foundation.h>
 #import <Masonry.h>
 #import <RongIMLib/RongIMLib.h>
-
+#import "DDUserInfoModel.h"
 
 
 #define     HexColor(color)             [UIColor colorWithRed:((float)((color & 0xFF0000) >> 16))/255.0 green:((float)((color & 0xFF00) >> 8))/255.0 blue:((float)(color & 0xFF))/255.0 alpha:1.0]
 
 #define BORDER_WIDTH_1PX ([[UIScreen mainScreen] scale] > 0.0 ? 1.0 / [[UIScreen mainScreen] scale] : 1.0)
+#define USER_ID [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"]
+//Notification
+#define Notification_RecivedMessage @"Notification_RecivedMessage"
 
 #endif /* DDChat_PrefixHeader_pch */

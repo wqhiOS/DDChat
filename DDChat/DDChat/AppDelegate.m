@@ -8,15 +8,13 @@
 
 #import "AppDelegate.h"
 #import "DDTabBarController.h"
+#import "AppDelegate+ChatMessage.h"
+#import "DDNavigationController.h"
+#import "DDLoginViewController.h"
 
-/*
- bHupU4xPHlNDYVf5g70DiWqOo4oQ66S4TwsfZLDZe0z+3OcNnX++wx1F/0OoMsFe4qE84vzEUSpTjUK2fWeONpLpeUGSnMHm
- 18516503957
- 
- cJ7wi5lxldrXT0rE0PvJmGqOo4oQ66S4TwsfZLDZe0xEdF5Dje9tbuNJm1GRn8hKQ+8V3OB9KA+cC18eEBIWex7hgFUtgstd
- 16602152440
- */
-@interface AppDelegate ()<RCIMClientReceiveMessageDelegate>
+#define DDChat_AppKey @"8luwapkv8j7rl"
+
+@interface AppDelegate ()
 
 @end
 
@@ -25,49 +23,76 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [[RCIMClient sharedRCIMClient] initWithAppKey:@"8luwapkv8j7rl"];
-    [[RCIMClient sharedRCIMClient] connectWithToken:@"bHupU4xPHlNDYVf5g70DiWqOo4oQ66S4TwsfZLDZe0z+3OcNnX++wx1F/0OoMsFe4qE84vzEUSpTjUK2fWeONpLpeUGSnMHm" success:^(NSString *userId) {
-        NSLog(@"%@",userId);
-    } error:^(RCConnectErrorCode status) {
-        NSLog(@"%ld",(long)status);
-    } tokenIncorrect:^{
-        NSLog(@"token过期");
-    }];
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.window makeKeyAndVisible];
-    self.window.rootViewController = [DDTabBarController new];
+    self.window.backgroundColor = [UIColor whiteColor];
     
-    //接受消息
-    [self reciveMessages];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"userId"]) {
+        
+        self.window.rootViewController = [DDTabBarController new];
+        [self loadIMClient];
+        
+    }else {
+        DDNavigationController *nav = [[DDNavigationController alloc] initWithRootViewController:[DDLoginViewController new]];
+        self.window.rootViewController = nav;
+    }
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
-- (void)reciveMessages {
-    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
-}
-/*!
- 接收消息的回调方法
- 
- @param message     当前接收到的消息
- @param nLeft       还剩余的未接收的消息数，left>=0
- @param object      消息监听设置的key值
- 
- @discussion 如果您设置了IMlib消息监听之后，SDK在接收到消息时候会执行此方法。
- 其中，left为还剩余的、还未接收的消息数量。比如刚上线一口气收到多条消息时，通过此方法，您可以获取到每条消息，left会依次递减直到0。
- 您可以根据left数量来优化您的App体验和性能，比如收到大量消息时等待left为0再刷新UI。
- object为您在设置消息接收监听时的key值。
- */
-- (void)onReceived:(RCMessage *)message
-              left:(int)nLeft
-            object:(id)object {
-    if ([message.content isMemberOfClass:[RCTextMessage class]]) {
-        RCTextMessage *testMessage = (RCTextMessage *)message.content;
-        NSLog(@"消息内容：%@", testMessage.content);
+- (void)loadIMClient {
+    
+    if ([USER_ID isEqualToString:@"18516503957"]) {
+        [DDUserInfoModel defaultModel].name = @"吴启晗";
+        DDUserInfoModel.defaultModel.headPortrait = @"meIcon";
+        DDUserInfoModel.defaultModel.userId = @"18516503957";
+        
+        DDUserInfoModel *friend = [DDUserInfoModel new];
+        friend.name = @"冯加育";
+        friend.headPortrait = @"youIcon";
+        friend.userId=  @"16602152440";
+        
+        DDUserInfoModel.defaultModel.friends = @[friend].mutableCopy;
+    }else {
+        [DDUserInfoModel defaultModel].name =@"冯加育";
+        DDUserInfoModel.defaultModel.headPortrait = @"youIcon";
+        DDUserInfoModel.defaultModel.userId = @"16602152440";
+        
+        DDUserInfoModel *friend = [DDUserInfoModel new];
+        friend.name = @"吴启晗";
+        friend.headPortrait = @"meIcon";
+        friend.userId=  @"18516503957";
+        
+        DDUserInfoModel.defaultModel.friends = @[friend].mutableCopy;
     }
     
-    NSLog(@"还剩余的未接收的消息数：%d", nLeft);
+    NSDictionary *tokenDict = @{
+                                @"18516503957":@"bHupU4xPHlNDYVf5g70DiWqOo4oQ66S4TwsfZLDZe0z+3OcNnX++wx1F/0OoMsFe4qE84vzEUSpTjUK2fWeONpLpeUGSnMHm"
+                                ,@"16602152440":@"HaOgrWt43XF6bI/vqDo8pGqOo4oQ66S4TwsfZLDZe0xEdF5Dje9tbms5fhkX9aLEm16EaORO3R2cC18eEBIWex7hgFUtgstd"
+                                
+                                };
+    
+    [[RCIMClient sharedRCIMClient] initWithAppKey:DDChat_AppKey];
+    
+    [[RCIMClient sharedRCIMClient] connectWithToken:tokenDict[USER_ID] success:^(NSString *userId) {
+        
+        NSLog(@"登录成功%@",userId);
+        [self chatHandle];
+        
+    } error:^(RCConnectErrorCode status) {
+        
+        NSLog(@"%ld",(long)status);
+        
+    } tokenIncorrect:^{
+        
+        NSLog(@"token过期");
+    }];
 }
+
+- (void)chatHandle {
+    [self recivedMessage];
+}
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

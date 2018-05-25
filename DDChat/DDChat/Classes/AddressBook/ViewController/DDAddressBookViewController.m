@@ -61,8 +61,17 @@
     addressBookModel4.headIcon = @"ab_newfriend";
     
     DDAddressBookModel *addressBookModel5 = [DDAddressBookModel new];
-    addressBookModel5.name = @"fjy";
-    addressBookModel5.headIcon = @"youIcon";
+    
+    if ([USER_ID isEqualToString:@"18516503957"]) {
+        addressBookModel5.name = @"冯加育";
+        addressBookModel5.headIcon = @"youIcon";
+        addressBookModel5.userId = @"16602152440";
+    }else {
+        addressBookModel5.name = @"吴启晗";
+        addressBookModel5.headIcon = @"meIcon";
+        addressBookModel5.userId = @"18516503957";
+    }
+    
     
     self.dataDict = @{@"head":@[addressBookModel1,addressBookModel2,addressBookModel3,addressBookModel4],
                        @"★星标朋友":@[addressBookModel5]}.mutableCopy;
@@ -90,11 +99,8 @@
     self.searchController.searchBar.delegate = self;
     self.searchController.searchBar.placeholder = @"搜索";
     
-//    if (@available(iOS 11.0, *)) {
-//        self.navigationItem.searchController = self.searchController;
-//    } else {
     self.tableView.tableHeaderView = self.searchController.searchBar;
-//    }
+    self.tableView.tableFooterView = [UIView new];
     
     
 }
@@ -115,7 +121,7 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DDChatViewController *vc = [[DDChatViewController alloc] init];
+    DDChatViewController *vc = [[DDChatViewController alloc] initWithAddressBookModel:[self.dataDict[@"★星标朋友"] lastObject]];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

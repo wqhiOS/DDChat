@@ -7,7 +7,11 @@
 //
 
 #import "DDChatBaseViewController.h"
+@class DDAddressBookModel;
 
 @interface DDChatViewController : DDChatBaseViewController
+
+- (instancetype)initWithAddressBookModel:(DDAddressBookModel *)addressBookModel;
+- (instancetype)initWithTargetId:(NSString *)targetId;
 
 @end

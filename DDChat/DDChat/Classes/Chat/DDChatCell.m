@@ -9,6 +9,7 @@
 #import "DDChatCell.h"
 #import <MLLabel.h>
 #import "DDChatModel.h"
+#import "DDDateConvertTool.h"
 
 @interface DDChatCell()
 
@@ -94,20 +95,33 @@
     
 }
 
-- (void)setChatModel:(DDChatModel *)chatModel {
-    _chatModel = chatModel;
+- (void)setMessage:(RCMessage *)message {
+    _message = message;
     
-    self.timeLabel.text = chatModel.messageTime.length > 0 ? chatModel.messageTime : @"";
-    [self.timeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(chatModel.messageTime.length == 0 ? @0 :@20);
-    }];
-    
-    self.contentLabel.text = chatModel.messageText;
-    if (chatModel.roleType == DDMessageRolwTypeMe) {
-        self.headIconImageView.image = [UIImage imageNamed:@"meIcon"];
-    }else {
+    if ([message.content isKindOfClass:[RCTextMessage class]]) {
+        
+        RCTextMessage *textMessage = message.content;
+        
+        self.contentLabel.text = textMessage.content;
+        self.timeLabel.text = [DDDateConvertTool dateConvertTimeStampToStringWithTimeStamp:message.sentTime/1000 dateDisplayType:DDDateDisplayType_Time customTypeString:nil];
         self.headIconImageView.image = [UIImage imageNamed:@"youIcon"];
     }
+}
+
+- (void)setChatModel:(DDChatModel *)chatModel {
+//    _chatModel = chatModel;
+//
+//    self.timeLabel.text = chatModel.messageTime.length > 0 ? chatModel.messageTime : @"";
+//    [self.timeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.height.equalTo(chatModel.messageTime.length == 0 ? @0 :@20);
+//    }];
+//
+//    self.contentLabel.text = chatModel.messageText;
+//    if (chatModel.roleType == DDMessageRolwTypeMe) {
+//        self.headIconImageView.image = [UIImage imageNamed:@"meIcon"];
+//    }else {
+//        self.headIconImageView.image = [UIImage imageNamed:@"youIcon"];
+//    }
 }
 
 @end

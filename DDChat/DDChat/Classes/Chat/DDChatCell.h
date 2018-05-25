@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DDChatModel;
+
 @interface DDChatCell : UITableViewCell
 
-@property (nonatomic, strong) DDChatModel *chatModel;
+
+@property (nonatomic, strong) RCMessage *message;
 
 
 @end

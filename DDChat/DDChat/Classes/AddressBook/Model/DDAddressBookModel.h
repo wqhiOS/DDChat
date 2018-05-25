@@ -12,5 +12,6 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *headIcon;
+@property (nonatomic, copy) NSString *userId;
 
 @end
